@@ -56,8 +56,6 @@ function 제목변경(){
 
 4. 그리고 그걸 글제목변경()함수 안에 넣어서 글제목 state를 변경
 
----
-
 ⚠ 그러나 위와 같이 코드를 짜면 작동이 되지 않는다.
 
 <details markdown="1">
@@ -126,4 +124,136 @@ function 제목변경(){
 
 ---
 
+🚩 HTML을 간략하게 줄이는 방법
 
+``` javascript
+  <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+  </div>
+```
+
+이러한 코드로 HTML을 만든다고 가정하자 
+
+``` javascript
+  <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+  </div>
+  <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+  </div>
+  <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+  </div>
+```
+
+보는거와 같이 같은 코드를 여러개 쓴다면 과연 효율적이지 않음
+
+<details markdown="1">
+<summary>HTML을 한단어로 줄여서 쓸 수 있는 방법?</summary>
+📌 리액트의 Component 문법
+
+</details>
+
+``` javascript
+function App() {
+
+function Modal() {
+  return(
+    <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+    </div>
+  )
+}
+
+ return(
+  <Modal/>
+);
+}
+
+export default App;
+```
+
+1. function을 이용해서 함수를 하나 만듬
+
+2. 그 함수 안에 return () 안에 원하는 HTML을 담음
+
+3. 그럼 원하는 곳에서 <Modal></Modal> 이라고 사용했을 때 아까 축약한 HTML이 등장
+
+✔ Component의 특징
+
+1. Component 이름지으실 땐 영어대문자로 보통 시작
+
+2. return () 안엔 태그들이 평행하게 여러개 들어갈 수 없음
+
+평행하게 여러개의 태그를 쓰고 싶으면 <div>로 묶거나
+
+의미없는 div를 쓰기 싫으시면 <> </> 이걸로 묶으면 됨
+
+ 
+``` javascript
+function EX(){
+  return (
+    <>
+      <div>안녕</div>
+      <div>안녕</div>
+      <div>안녕</div>
+    </>
+  )
+}
+```
+
+▲ fragments라는 문법 (의미없을때 <> </> 사용함)
+
+3. component 위치는.. function App(){} 이것과 보통 나란히 만들어줍니다.
+
+왜냐면 function App(){} (이것도 컴포넌트 생성문법)
+
+보통 컴포넌트용 function 안에다가 컴포넌트용 function을 만들진 않음
+
+4. component 안에 미리 만들어둔 component 집어넣기도 가능합니다.
+
+``` javascript
+function Modal(){
+  return (
+    <div className="modal">
+      <h2>제목</h2>
+      <p>날짜</p>
+      <p>상세내용</p>
+      <EX></EX>
+    </div>
+  )
+}
+function EX(){
+  return ( <div> 안녕 </div> )
+}
+```
+
+📌 어떤 HTML을 Component화 시키는게 좋은것인가?
+
+- 사이트에 반복해서 출현하는 HTML 덩어리들은 Component로 만들어야 함
+
+- 내용이 매우 자주 변경될 것 같은 HTML 부분을 잘라서 Component로 만들어야 함
+
+- 다른 페이지를 만들고 싶다면 그 페이지의 HTML 내용을 하나의 컴포넌트로 만드는걸 추천 (그냥 좋을 뿐 필수는 아님)
+
+- 또는 다른 팀원과 협업할 때 웹페이지를 컴포넌트 단위로 나눠서 작업을 분배할때 편함
+
+✔ 즉 코드 재사용할 때, 기능별로 나눌 때 유지 보수할 때 사용하기 편함 
+
+📌 Component의 단점
+
+- <Modal>이라는 컴포넌트가 App(){} 안에 있는 state를 사용하고 싶을 때 그냥 바로 쓸 수 없음 props라는 문법을 이용해 state를 <Modal>까지 전해줘야 비로소 사용가능
+
+  ---
+  
+  
