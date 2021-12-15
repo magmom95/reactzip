@@ -55,6 +55,16 @@ function 역정렬() {
   글제목변경(역정렬);
 }
 
+function Modal() {
+  return(
+    <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+    </div>
+  )
+}
+
   return (
     <div className="App">
       <div className="color-nav">
@@ -81,6 +91,12 @@ function 역정렬() {
         <button onClick={ 제목변경3 }>제목 바뀝니다.</button>
         <hr/>
       </div>
+      {/* <div className='modal'>
+        <h2>모달창</h2>
+        <p>연습중이에요</p>
+        <p>아하아하</p>
+      </div> */}
+      <Modal/>
       <br/>
       <button onClick={ 제목변경4 }>원상태</button>
       <br/><br/>
