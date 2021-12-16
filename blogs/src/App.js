@@ -7,6 +7,7 @@ function App() {
   let [글제목, 글제목변경] = useState(['유튜브 추천', '룰루랄라', '라랄루룰']);
   let [싫어요, 싫어용] = useState(0);
   let [좋아요, 좋아용] = useState(0); /* [state, state 변경함수] */ 
+  let [modal, modalChange] = useState(false);
 
 function 제목변경(){
     let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
@@ -79,7 +80,7 @@ function Modal() {
       </div>
       <div className='list'>
         {/* <h4>{ posts }</h4> */}
-        <h3>{글제목[1]}</h3>
+        <h3 onClick={ () =>{ modalChange(true)}}>{글제목[1]}</h3>
         <p>12월 13일 </p>
         <button onClick={ 제목변경2 }>제목 바뀝니다.</button>
         <hr/>
@@ -96,9 +97,15 @@ function Modal() {
         <p>연습중이에요</p>
         <p>아하아하</p>
       </div> */}
-      <Modal/>
+      {/* <Modal/>  */}
+      {/* Component화를 통한 HTMl을 깔끔한게 치환 */}
+      { 
+      modal === true
+      ? <Modal/>
+      : null
+      }
       <br/>
-      <button onClick={ 제목변경4 }>원상태</button>
+      <button onClick={ 제목변경4 }>원상태</button>      
       <br/><br/>
       <button onClick={ 제목변경5 }>다 바꾸기</button>
       <br/><br/>
