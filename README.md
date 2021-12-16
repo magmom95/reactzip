@@ -122,6 +122,8 @@ function 제목변경(){
 
 3. 카피본을 state변경함수()에 집어넣음 
 
+⚠ 그러나 사본을 만드는건 reference 자료형들만 하면 됨 ( ex) array, object ) 문자, 숫자, true/false 이런건 필요없이 직접수정 가능! ⚠
+
 ---
 
 🚩 HTML을 간략하게 줄이는 방법
