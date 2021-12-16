@@ -87,7 +87,7 @@ function Modal() {
       </div>
       <div className='list'>
         {/* <h4>{ posts }</h4> */}
-        <h3>{글제목[2]}</h3>
+        <h3 onClick={() =>{ modalChange(!modal)}}>{글제목[2]}</h3>
         <p>12월 14일 </p>
         <button onClick={ 제목변경3 }>제목 바뀝니다.</button>
         <hr/>
