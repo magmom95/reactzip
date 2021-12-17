@@ -8,6 +8,7 @@ function App() {
   let [싫어요, 싫어용] = useState(0);
   let [좋아요, 좋아용] = useState(0); /* [state, state 변경함수] */ 
   let [modal, modalChange] = useState(false);
+  let [제목, 제목번호] = useState(0);
 
 function 제목변경(){
     let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
@@ -27,39 +28,39 @@ function 제목변경3(){
   글제목변경(제목변경3);
 }
 
-function 제목변경4 () {
-    let 제목변경4 = [...글제목]
-    제목변경4[0] = '유튜브 추천'
-    제목변경4[1] = '룰루랄라'
-    제목변경4[2] = '라랄루룰'
-    글제목변경(제목변경4);
-}
+// function 제목변경4 () {
+//     let 제목변경4 = [...글제목]
+//     제목변경4[0] = '유튜브 추천'
+//     제목변경4[1] = '룰루랄라'
+//     제목변경4[2] = '라랄루룰'
+//     글제목변경(제목변경4);
+// }
 
-function 제목변경5 () {
-  let 제목변경5 = [...글제목]
-  제목변경5[0] = '유튜브 현재추천'
-  제목변경5[1] = 'pull부터 해라'
-  제목변경5[2] = '어렵다 어려워'
-  글제목변경(제목변경5);
+// function 제목변경5 () {
+//   let 제목변경5 = [...글제목]
+//   제목변경5[0] = '유튜브 현재추천'
+//   제목변경5[1] = 'pull부터 해라'
+//   제목변경5[2] = '어렵다 어려워'
+//   글제목변경(제목변경5);
 
-}
+// }
 
-function 정렬 () {
-  let 정렬 = [...글제목]
-  정렬.sort();
-  글제목변경(정렬);
-}
+// function 정렬 () {
+//   let 정렬 = [...글제목]
+//   정렬.sort();
+//   글제목변경(정렬);
+// }
 
-function 역정렬() {
-  let 역정렬 = [...글제목]
-  역정렬.reverse();
-  글제목변경(역정렬);
-}
+// function 역정렬() {
+//   let 역정렬 = [...글제목]
+//   역정렬.reverse();
+//   글제목변경(역정렬);
+// }
 
 function Modal(props) {
   return(
     <div className='modal'>
-        <h2>{props.글제목[1]}</h2>
+        <h2>{props.글제목[props.제목]}</h2>
         <p>연습중이에요</p>
         <p>아하아하</p>
     </div>
@@ -101,17 +102,20 @@ function Modal(props) {
       {/* Component화를 통한 HTMl을 깔끔한게 치환 */}
       { 
       modal === true
-      ? <Modal 글제목={글제목}/>
+      ? <Modal 글제목={글제목} 제목={제목}/>
       : null
       }
       <br/>
-      <button onClick={ 제목변경4 }>원상태</button>      
+      {/* <button onClick={ 제목변경4 }>원상태</button>      
       <br/><br/>
       <button onClick={ 제목변경5 }>다 바꾸기</button>
       <br/><br/>
       <button onClick={ 정렬 }>정렬</button>
       <br/><br/>
-      <button onClick={ 역정렬 }>역정렬</button>
+      <button onClick={ 역정렬 }>역정렬</button> */}
+      <button onClick={()=>{ 제목번호(0)}}>버튼1</button>
+      <button onClick={()=>{ 제목번호(1)}}>버튼2</button>
+      <button onClick={()=>{ 제목번호(2)}}>버튼3</button>
       <br/><br/>
       <button onClick={() =>{ modalChange(!modal)}}>모달창</button>
     </div>
