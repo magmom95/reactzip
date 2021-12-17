@@ -56,7 +56,7 @@ function 제목변경(){
 
 4. 그리고 그걸 글제목변경()함수 안에 넣어서 글제목 state를 변경
 
-⚠ 그러나 위와 같이 코드를 짜면 작동이 되지 않는다.
+⚠ 그러나 위와 같이 코드를 짜면 작동이 되지 않
 
 <details markdown="1">
 <summary>동작하지 않는 이유</summary>
@@ -77,7 +77,7 @@ data1과 data2는 똑같은 값을 공유
 
 </details>
 
-✔ 결론은 아래와 같이 코드를 짜면 동작이 가능하다 이떄 사용한 문법이 spread 이다.
+✔ 결론은 아래와 같이 코드를 짜면 동작이 가능하다 이떄 사용한 문법이 spread 
 
 <details markdown="1">
 <summary>spread 문법이란?</summary>
@@ -96,7 +96,7 @@ object 자료형도 똑같이 가능
 
 ...[1,2,3] 이렇게 쓰면 그 자리에 1,2,3 이 남음 
 
-⚠ 걍 괄호 벗기기용 연산자입니다.
+⚠ 걍 괄호 벗기기용 연산자
 
 </details>
 
@@ -216,13 +216,13 @@ function EX(){
 
 ▲ fragments라는 문법 (의미없을때 <> </> 사용함)
 
-3. component 위치는.. function App(){} 이것과 보통 나란히 만들어줍니다.
+3. component 위치는.. function App(){} 이것과 보통 나란히 만들어 
 
 왜냐면 function App(){} (이것도 컴포넌트 생성문법)
 
 보통 컴포넌트용 function 안에다가 컴포넌트용 function을 만들진 않음
 
-4. component 안에 미리 만들어둔 component 집어넣기도 가능합니다.
+4. component 안에 미리 만들어둔 component 집어넣기도 가능
 
 ``` javascript
 function Modal(){
@@ -254,8 +254,94 @@ function EX(){
 
 📌 Component의 단점
 
-- <Modal>이라는 컴포넌트가 App(){} 안에 있는 state를 사용하고 싶을 때 그냥 바로 쓸 수 없음 props라는 문법을 이용해 state를 <Modal>까지 전해줘야 비로소 사용가능
+- <Modal>이라는 컴포넌트가 App(){} 안에 있는 state를 사용하고 싶을 때 그냥 바로 쓸 수 없음 props라는 문법을 이용해 state를 <Modal>까지 전해줘야 비로소 사용 가능
 
-  ---
+---
   
+🎨 자식이 부모의 state를 가져다 쓰고 싶다면?
+  
+![image](https://user-images.githubusercontent.com/64140544/146533608-cdb998e6-e87d-433e-963a-ec96890d97b4.png)
+
+- App이라는 컴포넌트안에 <Modal> 이라는 컴포넌트를 만들었다 가정 (부모 자식 과정)
+
+- App은 부모 컴포넌트고 Modal은 자식 컴포넌트일때 자식 컴포넌트가 부모 컴포넌트 안에 있던 state를 공통으로 쓸 수 있을까?
+  
+``` javascript
+  function App (){
+  let [글제목, 글제목변경] = useState(['유튜브 추천', '룰루랄라', '라랄루룰']);
+  return (
+    <div>
+      ...
+      <Modal></Modal>
+    </div>
+  )
+}
+
+function Modal(){
+  return (
+    <div className="modal">
+      <h2>제목 { 글제목[0] }</h2>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+}
+  
+```
+  
+<details markdown="1">
+<summary>그렇다면 어떤 것을 사용해야하는가?</summary> 
+<br>
+✔ props : 자식이 부모의 state를 가져다쓰고 싶을때 사용하는 문법
+<br><br>
+props를 사용하는 방법은?
+  
+- <자식컴포넌트 전송할이름={state명}>
+  
+- 자식컴포넌트 선언하는 function 안에 파라미터를 하나 만들어주면 됨
+  
+``` javascript
+  function App (){
+  let [글제목, 글제목변경] = useState(['유튜브 추천', '룰루랄라', '라랄루룰']);
+  return (
+    <div>
+      ...
+      <Modal 글제목={글제목}></Modal>
+    </div>
+  )
+}
+
+function Modal(props){
+  return (
+    <div className="modal">
+      <h2>제목 { props.글제목[0] }</h2>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+}
+  
+```
+  
+▲ 두가지 스텝을 밟아주시면 props로 원하는 state를 전송가능
+
+1. <Modal 전송할이름={state명}> 이렇게 원하는 state를 적어주시면 전송이 됨
+
+2. 그리고 function Modal(props){} 이렇게 Modal 함수 소괄호 내에 파라미터를 하나 추가
+
+3. 그럼 이제 props.전송할이름 이렇게 쓰시면 전송된 props를 사용 가능
+
+</details>
+
+참고1) props는 <Modal 이런거={이런거}  저런거={저런거}> 이렇게 10개 100개 1000개 무한히 전송이 가능
+
+참고2) props라는 파라미터엔 전송한 모든 props 데이터가 들어가 있음 props.글제목 이런 식으로 원하는 것만 꺼내서 쓰면 됨
+
+참고3) props 전송할 땐 꼭 {} 중괄호로 전송해야하는건 아님
+
+  <Modal 글제목={변수명}> 이렇게 변수명을 넣고싶으면 중괄호
+
+<Modal 글제목="강남우동맛집"> 이렇게 일반 텍스트를 전송하고 싶으면 따옴표 써도 됨
+  
+---
   
