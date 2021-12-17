@@ -56,10 +56,10 @@ function 역정렬() {
   글제목변경(역정렬);
 }
 
-function Modal() {
+function Modal(props) {
   return(
     <div className='modal'>
-        <h2>모달창</h2>
+        <h2>{props.글제목[1]}</h2>
         <p>연습중이에요</p>
         <p>아하아하</p>
     </div>
@@ -101,7 +101,7 @@ function Modal() {
       {/* Component화를 통한 HTMl을 깔끔한게 치환 */}
       { 
       modal === true
-      ? <Modal/>
+      ? <Modal 글제목={글제목}/>
       : null
       }
       <br/>
