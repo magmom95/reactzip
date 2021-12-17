@@ -80,7 +80,7 @@ function Modal() {
       </div>
       <div className='list'>
         {/* <h4>{ posts }</h4> */}
-        <h3 onClick={ () =>{ modalChange(true)}}>{글제목[1]}</h3>
+        <h3>{글제목[1]}</h3>
         <p>12월 13일 </p>
         <button onClick={ 제목변경2 }>제목 바뀝니다.</button>
         <hr/>
@@ -112,6 +112,8 @@ function Modal() {
       <button onClick={ 정렬 }>정렬</button>
       <br/><br/>
       <button onClick={ 역정렬 }>역정렬</button>
+      <br/><br/>
+      <button onClick={() =>{ modalChange(!modal)}}>모달창</button>
     </div>
   );
 }
