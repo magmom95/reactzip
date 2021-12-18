@@ -9,6 +9,7 @@ function App() {
   let [좋아요, 좋아용] = useState(0); /* [state, state 변경함수] */ 
   let [modal, modalChange] = useState(false);
   let [제목, 제목번호] = useState(0);
+  let [입력값, 입력값변경] = useState(''); 
 
 function 제목변경(){
     let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
@@ -113,6 +114,10 @@ function Modal(props) {
       <button onClick={ 정렬 }>정렬</button>
       <br/><br/>
       <button onClick={ 역정렬 }>역정렬</button> */}
+      <br/><br/>
+      {입력값}
+      <input onChange={(e)=>{입력값변경(e.target.value)}}/>
+      <br/><br/>
       <button onClick={()=>{ 제목번호(0)}}>버튼1</button>
       <button onClick={()=>{ 제목번호(1)}}>버튼2</button>
       <button onClick={()=>{ 제목번호(2)}}>버튼3</button>
