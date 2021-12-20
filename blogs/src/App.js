@@ -11,23 +11,23 @@ function App() {
   let [제목, 제목번호] = useState(0);
   let [입력값, 입력값변경] = useState(''); 
 
-function 제목변경(){
-    let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
-    제목변경[0] = '유튜브 현재 추천' /* 2. 카피본에 수정사항 변경 */
-    글제목변경(제목변경); /* 3. 변경함수에 () 집어넣기 */
-}
+// function 제목변경(){
+//     let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
+//     제목변경[0] = '유튜브 현재 추천' /* 2. 카피본에 수정사항 변경 */
+//     글제목변경(제목변경); /* 3. 변경함수에 () 집어넣기 */
+// }
 
-function 제목변경2(){
-  let 제목변경2 = [...글제목]
-  제목변경2[1] = 'pull부터 해라'
-  글제목변경(제목변경2);
-}
+// function 제목변경2(){
+//   let 제목변경2 = [...글제목]
+//   제목변경2[1] = 'pull부터 해라'
+//   글제목변경(제목변경2);
+// }
 
-function 제목변경3(){
-  let 제목변경3 = [...글제목]
-  제목변경3[2] = '어렵다 어려워'
-  글제목변경(제목변경3);
-}
+// function 제목변경3(){
+//   let 제목변경3 = [...글제목]
+//   제목변경3[2] = '어렵다 어려워'
+//   글제목변경(제목변경3);
+// }
 
 // function 제목변경4 () {
 //     let 제목변경4 = [...글제목]
@@ -73,27 +73,36 @@ function Modal(props) {
       <div className="color-nav">
         <div className="main" style={{ color : 'black', fontSize : '30px'}}>연습용 Blog</div>
       </div>
-      <div className='list'>
-        {/* <h4>{ posts }</h4> */}
+      {/* <div className='list'>
         <h3>{글제목[0]} <span onClick={ ()=> {좋아용(좋아요 + 1)}}> 👍 </span> {좋아요} <span onClick={ ()=> {싫어용(싫어요 -1)}}> 👎 </span> {싫어요}</h3>
         <p>12월 12일 </p>
         <button onClick={ 제목변경 }>제목 바뀝니다.</button>
         <hr/>
       </div>
       <div className='list'>
-        {/* <h4>{ posts }</h4> */}
         <h3>{글제목[1]}</h3>
         <p>12월 13일 </p>
         <button onClick={ 제목변경2 }>제목 바뀝니다.</button>
         <hr/>
       </div>
       <div className='list'>
-        {/* <h4>{ posts }</h4> */}
         <h3 onClick={() =>{ modalChange(!modal)}}>{글제목[2]}</h3>
         <p>12월 14일 </p>
         <button onClick={ 제목변경3 }>제목 바뀝니다.</button>
         <hr/>
-      </div>
+      </div> */}
+      { 
+        글제목.map(function(글){
+          return (
+            <div className='list'>
+              <h3>{글} <span onClick={ ()=> {좋아용(좋아요 + 1)}}> 👍 </span> {좋아요} <span onClick={ ()=> {싫어용(싫어요 -1)}}> 👎 </span> {싫어요}</h3>
+              <p>12월 12일 </p>
+              {/* <button onClick={ 제목변경 }>제목 바뀝니다.</button> */}
+              <hr/>
+            </div>
+          ) 
+        })
+      }
       {/* <div className='modal'>
         <h2>모달창</h2>
         <p>연습중이에요</p>
