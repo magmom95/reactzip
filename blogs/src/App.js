@@ -5,8 +5,8 @@ function App() {
   /* let posts = '연습중이에여'; */ 
 
   let [글제목, 글제목변경] = useState(['유튜브 추천', '룰루랄라', '라랄루룰']);
-  let [싫어요, 싫어용] = useState(0);
-  let [좋아요, 좋아용] = useState(0); /* [state, state 변경함수] */ 
+  let [싫어요, 싫어용] = useState([0,0,0]);
+  let [좋아요, 좋아용] = useState([0,0,0]); /* [state, state 변경함수] */ 
   let [modal, modalChange] = useState(false);
   let [제목, 제목번호] = useState(0);
   let [입력값, 입력값변경] = useState(''); 
@@ -68,6 +68,8 @@ function Modal(props) {
   )
 }
 
+const 
+
   return (
     <div className="App">
       <div className="color-nav">
@@ -92,10 +94,10 @@ function Modal(props) {
         <hr/>
       </div> */}
       { 
-        글제목.map(function(글){
+        글제목.map(function(i,글){
           return (
             <div className='list'>
-              <h3>{글} <span onClick={ ()=> {좋아용(좋아요 + 1)}}> 👍 </span> {좋아요} <span onClick={ ()=> {싫어용(싫어요 -1)}}> 👎 </span> {싫어요}</h3>
+              <h3 onClick={()=> {제목번호(i)}}> {글} <span onClick={ ()=> {좋아용(좋아요[i]+1)}}> 👍 </span> {좋아요[i]} <span onClick={ ()=> {싫어용(싫어요[i]-1)}}> 👎 </span> {싫어요[i]}</h3>
               <p>12월 12일 </p>
               {/* <button onClick={ 제목변경 }>제목 바뀝니다.</button> */}
               <hr/>
