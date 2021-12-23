@@ -345,3 +345,21 @@ function Modal(props){
   
 ---
   
+📐 반복되는 div를 줄일려면?
+  
+<details markdown="1">
+<summary>그렇다면 어떤 것을 사용해야하는가?</summary> 
+<br>
+✔ map : 배열을 순회하며 각 요소에 대하여 인자로 주어진 콜백 함수의 반환값(결과값)으로 새로운 배열을 생성 
+  
+<br>
+<br>
+  
+  ![image](https://user-images.githubusercontent.com/64140544/147236374-c3621c11-df57-4bd5-b916-ac4e3aba0f09.png)
+  
+
+  이때 원본 배열은 변경 X
+</details>
+  
+---
+  
