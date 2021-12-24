@@ -11,6 +11,7 @@ function App() {
   let [modal, modalChange] = useState(false);
   let [제목, 제목번호] = useState(0);
   let [입력값, 입력값변경] = useState(''); 
+  let [입력, 추가값] = useState('');
 
   function 제목변경(){
      let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
@@ -18,17 +19,17 @@ function App() {
      글제목변경(제목변경); /* 3. 변경함수에 () 집어넣기 */
   }
 
-  function 제목변경2(){
-    let 제목변경2 = [...글제목]
-    제목변경2[1] = 'pull부터 해라'
-    글제목변경(제목변경2);
-  }
+  // function 제목변경2(){
+  //   let 제목변경2 = [...글제목]
+  //   제목변경2[1] = 'pull부터 해라'
+  //   글제목변경(제목변경2);
+  // }
 
-  function 제목변경3(){
-    let 제목변경3 = [...글제목]
-    제목변경3[2] = '어렵다 어려워'
-    글제목변경(제목변경3);
-  }
+  // function 제목변경3(){
+  //   let 제목변경3 = [...글제목]
+  //   제목변경3[2] = '어렵다 어려워'
+  //   글제목변경(제목변경3);
+  // }
 
   // function 제목변경4 () {
   //     let 제목변경4 = [...글제목]
@@ -139,9 +140,16 @@ function changed(i){
       <br/><br/>
       <button onClick={ 역정렬 }>역정렬</button> */}
       <br/><br/>
-      {입력값}
-      <input onChange={(e)=>{입력값변경(e.target.value)}}/>
-      <br/><br/>
+      {/* {입력값}
+      <input onChange={(e)=>{입력값변경(e.target.value)}}/> */}
+      <div className='publish'>
+        <input onChange={(e) => {추가값(e.target.value)}}/>
+        <button onClick={() => {
+          var arrayPlus = [...글제목];
+          arrayPlus.unshift(입력);
+          글제목변경(arrayPlus);
+        }}>저장</button>
+      </div>
       <button onClick={()=>{ 제목번호(0)}}>버튼1</button>
       <button onClick={()=>{ 제목번호(1)}}>버튼2</button>
       <button onClick={()=>{ 제목번호(2)}}>버튼3</button>
