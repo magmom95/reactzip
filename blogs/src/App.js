@@ -108,9 +108,9 @@ function changed(i){
         글제목.map((글 , i) => {
 
           return (
-            <div className='list'>
+            <div className='list' key={i}>
             {/* <h3 onClick={() =>{제목변경()}}> { 글 } <span onClick={ () => change(i)}>👍</span> {좋아요[i]}<span onClick={ ()=> changed(i)}> 👎 </span> {싫어요[i]}</h3> */}
-            <h3> { 글 } <span onClick={ () => change(i)}>👍</span> {좋아요[i]}<span onClick={ ()=> changed(i)}> 👎 </span> {싫어요[i]}</h3>
+            <h3 onClick={() =>{ 제목번호(i)}}> { 글 } <span onClick={ () => change(i)}>👍</span> {좋아요[i]}<span onClick={ ()=> changed(i)}> 👎 </span> {싫어요[i]}</h3>
             <p>2월 17일 발행</p>
             <hr></hr>
           </div>
@@ -133,7 +133,7 @@ function changed(i){
       <br/>
       {/* <button onClick={ 제목변경4 }>원상태</button>      
       <br/><br/>
-      <button onClick={ 제목변경5 }>다 바꾸기</button>
+      <button onClick={ 제목변경5 }>다 바꾸기</button> 
       <br/><br/>
       <button onClick={ 정렬 }>정렬</button>
       <br/><br/>
