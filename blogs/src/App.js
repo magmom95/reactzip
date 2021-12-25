@@ -83,8 +83,14 @@ function changed(i){
 }
 
 function arrayPlus(){
-  var arrayPlus = [...글제목];
+  let arrayPlus = [...글제목];
+  let arrayp = [...좋아요];
+  let arraym = [...싫어요];
+  arraym.unshift(0);
+  arrayp.unshift(0);
   arrayPlus.unshift(입력);
+  싫어용(arraym);
+  좋아용(arrayp);
   글제목변경(arrayPlus);
 }
 
