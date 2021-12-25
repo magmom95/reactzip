@@ -1,4 +1,4 @@
-import { computeHeadingLevel } from '@testing-library/react';
+// import { computeHeadingLevel } from '@testing-library/react';
 import React, {useState} from 'react';
 import './App.css';
 
@@ -10,14 +10,14 @@ function App() {
   let [좋아요, 좋아용] = useState([0,0,0]); /* [state, state 변경함수] */ 
   let [modal, modalChange] = useState(false);
   let [제목, 제목번호] = useState(0);
-  let [입력값, 입력값변경] = useState(''); 
+  // let [입력값, 입력값변경] = useState(''); 
   let [입력, 추가값] = useState('');
 
-  function 제목변경(){
-     let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
-     제목변경[0] = '유튜브 현재 추천' /* 2. 카피본에 수정사항 변경 */
-     글제목변경(제목변경); /* 3. 변경함수에 () 집어넣기 */
-  }
+  // function 제목변경(){
+  //    let 제목변경 = [...글제목]  /* 1. 기존 state에 카피본을 만들고 <-deepcopy를 함 <- spread 사용 */
+  //    제목변경[0] = '유튜브 현재 추천' /* 2. 카피본에 수정사항 변경 */
+  //    글제목변경(제목변경); /* 3. 변경함수에 () 집어넣기 */
+  // }
 
   // function 제목변경2(){
   //   let 제목변경2 = [...글제목]
