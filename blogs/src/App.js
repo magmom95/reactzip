@@ -82,6 +82,12 @@ function changed(i){
   싫어용(notlikecopy);
 }
 
+function arrayPlus(){
+  var arrayPlus = [...글제목];
+  arrayPlus.unshift(입력);
+  글제목변경(arrayPlus);
+}
+
   return (
     <div className="App">
       <div className="color-nav">
@@ -144,11 +150,7 @@ function changed(i){
       <input onChange={(e)=>{입력값변경(e.target.value)}}/> */}
       <div className='publish'>
         <input onChange={(e) => {추가값(e.target.value)}}/>
-        <button onClick={() => {
-          var arrayPlus = [...글제목];
-          arrayPlus.unshift(입력);
-          글제목변경(arrayPlus);
-        }}>저장</button>
+        <button onClick={() => {arrayPlus()}}>저장</button>
       </div>
       <button onClick={()=>{ 제목번호(0)}}>버튼1</button>
       <button onClick={()=>{ 제목번호(1)}}>버튼2</button>
