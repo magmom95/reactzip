@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Carousel} from 'react-bootstrap';
 import './App.css';
-import { name, name2 } from './data';
+import Data from './data';
+import Test from './test';
 
 function App() {
 
-  // let [shoes, shoes변경] = useState();
+  let [shoes, shoes변경] = useState(Data);
+  let [text, text변경] = useState(Test);
 
   return (
     <div className="App">
@@ -45,8 +47,7 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-{name}
-{name2}
+
       <Carousel variant="dark" >
         <Carousel.Item>
           <img
@@ -55,8 +56,8 @@ function App() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h5>{text[0].title}</h5>
+            <p>{text[0].content}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -66,8 +67,8 @@ function App() {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h5>{text[1].title}</h5>
+            <p>{text[1].content}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -77,8 +78,8 @@ function App() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h5>{text[2].title}</h5>
+            <p>{text[2].content}</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -88,18 +89,18 @@ function App() {
         <div className='row'>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_1_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4>상품명</h4>
-            <p>사용설명</p>
+            <h4>{shoes[0].title}</h4>
+            <p>{shoes[0].content}</p>
           </div>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_2_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4>상품명</h4>
-            <p>사용설명</p>
+            <h4>{shoes[1].title}</h4>
+            <p>{shoes[1].content}</p>
           </div>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_3_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4>상품명</h4>
-            <p>사용설명</p>
+            <h4>{shoes[2].title}</h4>
+            <p>{shoes[2].content}</p>
           </div>
         </div>
       </div>
