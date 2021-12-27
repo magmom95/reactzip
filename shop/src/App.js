@@ -46,7 +46,7 @@ function App() {
         <Carousel.Item>
           <img
             className="center-block w-25"
-            src="https://github.com/magmom95/interex/blob/main/pic_5.jpg?raw=true" w
+            src="https://github.com/magmom95/interex/blob/main/pic_5.jpg?raw=true" 
             alt="First slide"
           />
           <Carousel.Caption>
@@ -83,20 +83,17 @@ function App() {
         <div className='row'>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_1_1.JPG?raw=true' width='100%' height='78%'/>
-            <br/><br/>
-            <h4>상품명</h4>
+            <h4 className='p-3'>상품명</h4>
             <p>상품설명 & 가격</p>
           </div>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_2_1.JPG?raw=true' width='100%' height='78%'/>
-            <br/><br/>
-            <h4>상품명</h4>
+            <h4 className='p-3'>상품명</h4>
             <p>상품설명 & 가격</p>
           </div>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_3_1.JPG?raw=true' width='100%' height='78%'/>
-            <br/><br/>
-            <h4>상품명</h4>
+            <h4 className='p-3'>상품명</h4>
             <p>상품설명 & 가격</p>
           </div>
         </div>
