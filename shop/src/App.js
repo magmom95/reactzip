@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Carousel} from 'react-bootstrap';
 import './App.css';
+import { name, name2 } from './data';
 
 function App() {
+
+  // let [shoes, shoes변경] = useState();
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -41,7 +45,8 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
+{name}
+{name2}
       <Carousel variant="dark" >
         <Carousel.Item>
           <img
@@ -83,18 +88,18 @@ function App() {
         <div className='row'>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_1_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4 className='p-3'>상품명</h4>
-            <p>상품설명 & 가격</p>
+            <h4>상품명</h4>
+            <p>사용설명</p>
           </div>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_2_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4 className='p-3'>상품명</h4>
-            <p>상품설명 & 가격</p>
+            <h4>상품명</h4>
+            <p>사용설명</p>
           </div>
           <div className='col-md-4'>
             <img src='https://github.com/magmom95/interex/blob/main/nike_3_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4 className='p-3'>상품명</h4>
-            <p>상품설명 & 가격</p>
+            <h4>상품명</h4>
+            <p>사용설명</p>
           </div>
         </div>
       </div>
