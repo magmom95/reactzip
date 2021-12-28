@@ -87,25 +87,23 @@ function App() {
 
       <div className='container'>
         <div className='row'>
-          <div className='col-md-4'>
-            <img src='https://github.com/magmom95/interex/blob/main/nike_1_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4>{shoes[0].title}</h4>
-            <p>{shoes[0].content}</p>
-          </div>
-          <div className='col-md-4'>
-            <img src='https://github.com/magmom95/interex/blob/main/nike_2_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4>{shoes[1].title}</h4>
-            <p>{shoes[1].content}</p>
-          </div>
-          <div className='col-md-4'>
-            <img src='https://github.com/magmom95/interex/blob/main/nike_3_1.JPG?raw=true' width='100%' height='78%'/>
-            <h4>{shoes[2].title}</h4>
-            <p>{shoes[2].content}</p>
-          </div>
+          <Card shoes={shoes[0]}/>
+          <Card shoes={shoes[1]}/>
+          <Card shoes={shoes[2]}/>
         </div>
       </div>
-    </div>
-  );
-}
+      </div>
+        );
+      }
+
+  function Card(props){
+      return(
+        <div className='col-md-4'>
+            <img src='https://github.com/magmom95/interex/blob/main/nike_1_1.JPG?raw=true' width='100%' height='78%'/>
+            <h4>{props.shoes.title}</h4>
+            <p>{props.shoes.content}</p> 
+        </div>
+      )
+  }
 
 export default App;
