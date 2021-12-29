@@ -85,21 +85,32 @@ function App() {
       </Carousel>
       <br/><br/>
 
+      {/* <div className='container'>
+        <div className='row'>
+          {
+            shoes.map((a)=> {
+              return <Card shoes={a}/>
+            })
+          }
+        </div>
+      </div> */}
       <div className='container'>
         <div className='row'>
-          <Card shoes={shoes[0]}/>
-          <Card shoes={shoes[1]}/>
-          <Card shoes={shoes[2]}/>
+          {
+            shoes.map((a, i)=> {
+              return <Card shoes={shoes[i]} i={i} />
+            })
+          }
         </div>
       </div>
-      </div>
+    </div>
         );
       }
 
   function Card(props){
       return(
         <div className='col-md-4'>
-            <img src='https://github.com/magmom95/interex/blob/main/nike_1_1.JPG?raw=true' width='100%' height='78%'/>
+            <img src={'https://github.com/magmom95/interex/blob/main/nike'+ (props.i+ 1)+'.JPG?raw=true'} width='100%' height='78%'/>
             <h4>{props.shoes.title}</h4>
             <p>{props.shoes.content}</p> 
         </div>
