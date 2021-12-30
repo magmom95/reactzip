@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Carouse
 import './App.css';
 import Data from './data';
 import Test from './test';
+import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
 
@@ -85,10 +86,17 @@ function App() {
       </Carousel>
       <br/><br/>
 
+      <Route exact path="/">
+        <div>메인 페이지</div>
+      </Route>
+      <Route path="/detail">
+        <div>상세 페이지</div>
+      </Route>
+
       {/* <div className='container'>
         <div className='row'>
           {
-            shoes.map((a)=> {
+            shoes.map((a)=> {s
               return <Card shoes={a}/>
             })
           }
