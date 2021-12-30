@@ -49,50 +49,71 @@ function App() {
         </Container>
       </Navbar>
 
-      <Carousel variant="dark" >
-        <Carousel.Item>
-          <img
-            className="center-block w-25"
-            src="https://github.com/magmom95/interex/blob/main/pic_5.jpg?raw=true" 
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h5>{text[0].title}</h5>
-            <p>{text[0].content}</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="center-block w-25"
-            src="https://github.com/magmom95/interex/blob/main/pic_6.jpg?raw=true" width="100%"
-            alt="Second slide"
-          />
-          <Carousel.Caption>
-            <h5>{text[1].title}</h5>
-            <p>{text[1].content}</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="center-block w-25"
-            src="https://github.com/magmom95/interex/blob/main/pic_7.jpg?raw=true" width="100%"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h5>{text[2].title}</h5>
-            <p>{text[2].content}</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
       <br/><br/>
 
       <Route exact path="/">
-        <div>메인 페이지</div>
+      <Carousel variant="dark" >
+          <Carousel.Item>
+            <img
+              className="center-block w-25"
+              src="https://github.com/magmom95/interex/blob/main/pic_5.jpg?raw=true" 
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h5>{text[0].title}</h5>
+              <p>{text[0].content}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="center-block w-25"
+              src="https://github.com/magmom95/interex/blob/main/pic_6.jpg?raw=true" width="100%"
+              alt="Second slide"
+            />
+            <Carousel.Caption>
+              <h5>{text[1].title}</h5>
+              <p>{text[1].content}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="center-block w-25"
+              src="https://github.com/magmom95/interex/blob/main/pic_7.jpg?raw=true" width="100%"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h5>{text[2].title}</h5>
+              <p>{text[2].content}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        <br/><br/>
+        <div className='container'>
+          <div className='row'>
+            {
+              shoes.map((a, i)=> {
+                return <Card shoes={shoes[i]} i={i} key={i}/>
+              })
+            }
+          </div>
+        </div>
       </Route>
-      <Route path="/detail">
-        <div>상세 페이지</div>
+      <Route exact path="/detail">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <img src="https://github.com/magmom95/interex/blob/main/nike1.JPG?raw=true" width="100%" />
+            </div>
+            <div className="col-md-6 mt-4">
+              <h4 className="pt-5">상품명</h4>
+                <p>상품설명</p>
+                <p>120000원</p>
+              <button className="btn btn-danger">주문하기</button> 
+            </div>
+          </div>
+        </div>
       </Route>
-
+      {/* <Route path="/컴포넌트" component={Modal}></Route> */}
       {/* <div className='container'>
         <div className='row'>
           {
@@ -102,15 +123,8 @@ function App() {
           }
         </div>
       </div> */}
-      <div className='container'>
-        <div className='row'>
-          {
-            shoes.map((a, i)=> {
-              return <Card shoes={shoes[i]} i={i} key={i}/>
-            })
-          }
-        </div>
-      </div>
+
+      
     </div>
         );
       }
@@ -122,7 +136,7 @@ function App() {
             <h4>{props.shoes.title}</h4>
             <p>{props.shoes.content}</p> 
         </div>
-      )
+      );
   }
   
 export default App;
