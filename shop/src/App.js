@@ -98,7 +98,7 @@ function App() {
         <div className='row'>
           {
             shoes.map((a, i)=> {
-              return <Card shoes={shoes[i]} i={i} />
+              return <Card shoes={shoes[i]} i={i} key={i}/>
             })
           }
         </div>
@@ -116,5 +116,5 @@ function App() {
         </div>
       )
   }
-
+  
 export default App;
