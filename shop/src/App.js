@@ -53,7 +53,7 @@ function App() {
 
       <br/><br/>
 
-      <Route exact path="/">
+      <Route exact path="/da">
       <Carousel variant="dark" >
           <Carousel.Item>
             <img
