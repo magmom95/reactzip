@@ -52,8 +52,8 @@ function App() {
       </Navbar>
 
       <br/><br/>
-
-      <Route exact path="/da">
+    <Switch>
+      <Route exact path="/">
       <Carousel variant="dark" >
           <Carousel.Item>
             <img
@@ -103,6 +103,10 @@ function App() {
       <Route exact path="/detail">
         <Detail/>
       </Route>
+      <Route path="/:id">
+        <div>아무거나 적었을때 보여진다</div>
+      </Route>
+    </Switch>
       {/* <Route path="/컴포넌트" component={Modal}></Route> */}
       {/* <div className='container'>
         <div className='row'>
