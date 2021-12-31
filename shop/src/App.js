@@ -3,6 +3,8 @@ import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Carouse
 import './App.css';
 import Data from './data';
 import Test from './test';
+import Detail from './Detail';
+
 import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -22,8 +24,8 @@ function App() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
+              <Nav.Link><Link className='deco' to="/">Home</Link></Nav.Link>
+              <Nav.Link><Link className='deco' to="/detail">Detail</Link></Nav.Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
@@ -99,19 +101,7 @@ function App() {
         </div>
       </Route>
       <Route exact path="/detail">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <img src="https://github.com/magmom95/interex/blob/main/nike1.JPG?raw=true" width="100%" />
-            </div>
-            <div className="col-md-6 mt-4">
-              <h4 className="pt-5">상품명</h4>
-                <p>상품설명</p>
-                <p>120000원</p>
-              <button className="btn btn-danger">주문하기</button> 
-            </div>
-          </div>
-        </div>
+        <Detail/>
       </Route>
       {/* <Route path="/컴포넌트" component={Modal}></Route> */}
       {/* <div className='container'>
