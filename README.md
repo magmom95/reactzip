@@ -374,7 +374,7 @@ function Modal(props){
 <details markdown="1">
 <summary>여러가지 페이지를 만들려면?</summary>
   
-✔ 라우팅
+✔ 라우팅 , 링크 
 
 리액트는 SPA (Single Page Application) 방식으로써,
 
@@ -382,7 +382,7 @@ function Modal(props){
 
 새로운 페이지를 로드하지 않고 하나의 페이지 안에서 필요한 데이터만 가져오는 형태를 가짐
 
-⚠ MPA 방식이란?
+⚠ MPA (Multi Page application) 방식이란?
   
 - 로그인.html 페이지와 회원가입.html가 별도로 나눠져 있고 페이지를 이동하는 방식
   
@@ -394,5 +394,41 @@ function Modal(props){
 
 아니면 필요한 데이터만 가지고 와서 재로드 없이 렌더링하느냐의 차이
 
+```shell
+npm install react-router-dom@5
+yarn add react-router-dom@5
+```
 
+둘 중에 하나로 다운로드 받은 후
+
+index.js 에 
+  
+```javascript
+  import { BrowserRouter } from 'react-router-dom';
+
+(... 중략)
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+📌 BrowserRouter란?
+- HTML5의 History API를 사용하여 페이지를 새로고침하지 않고도 주소를 변경할 수 있도록 해줌 (즉, 페이지 변경으로 인한 깜빡거림 X)
+또, 현재 주소에 관련된 정보를 props로 조회 및 사용이 가능하도록 만들어 줌
+
+- BrowserRouter 는 라우팅을 리액트가 아니라 서버에게 요청할 수도 있어서 위험 
+  
+- 그래서 나온 hashRouter 는 라우팅을 보다 안전하게 해줌
+  
+💥 즉 리액트 라우터를 사용하는 이유는
+  
+- 여러 페이지들이 존재하는 서비스를 만들 때 필요
+  
+- url 주소나 특정상태에 따라서 view를 나누기 위해서 사용 
+  
 </details>
