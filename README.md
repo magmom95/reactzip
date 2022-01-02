@@ -373,13 +373,11 @@ function Modal(props){
   
 <details markdown="1">
 <summary>여러가지 페이지를 만들려면?</summary>
-  
-✔ 라우팅 , 링크 
+<br>
+✔ 라우팅
+<br><br>
 
-리액트는 SPA (Single Page Application) 방식으로써,
-
-여러개의 페이지를 사용하며, 새로운 페이지를 로드하는 기존의 MPA 방식과 달리
-
+- 리액트는 SPA (Single Page Application) 방식으로써, 여러개의 페이지를 사용하며, 새로운 페이지를 로드하는 기존의 MPA 방식과 달리
 새로운 페이지를 로드하지 않고 하나의 페이지 안에서 필요한 데이터만 가져오는 형태를 가짐
 
 ⚠ MPA (Multi Page application) 방식이란?
@@ -418,6 +416,7 @@ ReactDOM.render(
 );
 ```
 📌 BrowserRouter란?
+  
 - HTML5의 History API를 사용하여 페이지를 새로고침하지 않고도 주소를 변경할 수 있도록 해줌 (즉, 페이지 변경으로 인한 깜빡거림 X)
 또, 현재 주소에 관련된 정보를 props로 조회 및 사용이 가능하도록 만들어 줌
 
@@ -430,5 +429,55 @@ ReactDOM.render(
 - 여러 페이지들이 존재하는 서비스를 만들 때 필요
   
 - url 주소나 특정상태에 따라서 view를 나누기 위해서 사용 
+ 
+```javascript
+  <div>
+      <Route path="/이동할 주소" component={출력할 컴포넌트}/>
+      <Route path="/" component={Home} exact />
+      <Route path="/about" component={About} />
+  </div>
+```
+📌 라우터의 Link 태그, Switch 태그, history 역할?
   
+```javascript
+    <a href="localhost:3000/about">
+```
+- a 태그를 사용하면 될까?
+
+- Route를 사용하는 이유는 현재 페이지에서 상태를 유지하면서 바뀐 주소에 따라 바뀐 화면만 보이고 싶을 뿐인데, a태그를 사용할 경우, 상태가 전부 날아감 
+  또 기존의 렌더링된 컴포넌트를 다 날려버리고 처음부터 렌더링이 진행됨
+
+✔ 정답은 X Link를 사용해야한다
+
+- Link 컴포넌트는 클릭하면 다른 주소로 이동하는 과정에서 페이지를 새로 불러오지 않고 유지한 상태에서 History API만을 사용하여 페이지의 주소만 변경 (새로운 페이지를 안부름)
+      
+- Link 컴포넌트는 한마디로 a의 상속버전이라고 봐도 무방한데, 컴포넌트 자체로는 a로 이뤄져 있지만, 추가적으로 페이지 전환을 방지하는 기능 
+
+  
+```javascript
+  <div>
+    <Link to='이동할주소'>내용</Link>
+  </div>
+```
+ 
+- 코드를 작성한 의도는 에러가 발생했을 때 <PageNotFound> 컴포넌트를 보여주고 싶은데, 실제로 실행시켜보면 에러가 발생하지 않음에도 불구하고 해당 컴포넌트가 어떠한 URL에도 렌더링 됨
+  
+- 그 이유는 리액트의 라우터가 path 를 매칭시킬 때 값이 없기 때문에 무조건적으로 렌더링을 시킴
+      
+- 따라서, 이 문제를 해결하기 위해 <Switch> 가 등장한다. <Switch> 는 첫번째로 매칭되는 path 를 가진 컴포넌트를 렌더링 시킨다. 이것이 exact path (이 주소를 쳐야만 나옴) 와 다른 점은 첫번째 매칭만 본다는 것
+      
+```javascript
+  <div>
+    <Switch>
+      <Route path="/이동할 주소" component={출력할 컴포넌트}/>
+      <Route path="/" component={Home} exact />
+      <Route path="/about" component={About} />
+      <Route component={PageNotFound} />
+    </Switch>
+  </div>
+```
+- 위와 같이 <Route> 들을 <Switch> 로 감싸주면 에러가 발생했을 때 <PageNotFound> 가 나오게 되는데, 이는 첫번째로 매칭하는 path 값이 위에서 전부 없었기 때문임
 </details>
+
+ ---
+      
