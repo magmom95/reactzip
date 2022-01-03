@@ -100,7 +100,7 @@ function App() {
           </div>
         </div>
       </Route>
-      <Route exact path="/detail">
+      <Route exact path="/detail/:id">
         <Detail shoes={shoes}/>
       </Route>
       <Route path="/:id">
