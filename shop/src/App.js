@@ -101,7 +101,7 @@ function App() {
         </div>
       </Route>
       <Route exact path="/detail">
-        <Detail/>
+        <Detail shoes={shoes}/>
       </Route>
       <Route path="/:id">
         <div>아무거나 적었을때 보여진다</div>
