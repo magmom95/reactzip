@@ -463,14 +463,22 @@ ReactDOM.render(
 - 코드를 작성한 의도는 에러가 발생했을 때 <PageNotFound> 컴포넌트를 보여주고 싶은데, 실제로 실행시켜보면 에러가 발생하지 않음에도 불구하고 해당 컴포넌트가 어떠한 URL에도 렌더링 됨
   
 - 그 이유는 리액트의 라우터가 path 를 매칭시킬 때 값이 없기 때문에 무조건적으로 렌더링을 시킴
-      
+
+```javascript
+  <div>
+     <Route exact path="이 주소를 입력해야만 나옴">
+  </div>
+```
+
+- exact 를 사용하면 이 주소만 쳐야 웹 페이지가 나오지만 하나 하나 설정하기 귀찮 
+    
 - 따라서, 이 문제를 해결하기 위해 <Switch> 가 등장한다. <Switch> 는 첫번째로 매칭되는 path 를 가진 컴포넌트를 렌더링 시킨다. 이것이 exact path (이 주소를 쳐야만 나옴) 와 다른 점은 첫번째 매칭만 본다는 것
       
 ```javascript
   <div>
     <Switch>
       <Route path="/이동할 주소" component={출력할 컴포넌트}/>
-      <Route path="/" component={Home} exact />
+      <Route path="/" component={Home}  />
       <Route path="/about" component={About} />
       <Route component={PageNotFound} />
     </Switch>
