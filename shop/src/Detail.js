@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import styled from "styled-components";
 
-let box = styled.div`
+let Box = styled.div`
     padding : 20px;
+    `;
+
+let Title = styled.h4`
+    font-size : 25px;
     `;
 
 function Detail(props) {
@@ -16,7 +20,9 @@ function Detail(props) {
 
 ;    return(
         <div className="container">
-        <box>test 중</box>
+            <Box>
+                <Title>상세 페이지</Title>
+            </Box>
         <div className="row">
           <div className="col-md-6">
             <img src="https://github.com/magmom95/interex/blob/main/nike2.JPG?raw=true" width="100%" />
