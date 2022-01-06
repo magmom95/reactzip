@@ -8,6 +8,7 @@ let Box = styled.div`
 
 let Title = styled.h4`
     font-size : 25px;
+    color : ${ props => props.col }
     `;
 
 function Detail(props) {
@@ -21,7 +22,7 @@ function Detail(props) {
 ;    return(
         <div className="container">
             <Box>
-                <Title>상세 페이지</Title>
+                <Title col='orange' >상세 페이지</Title>
             </Box>
         <div className="row">
           <div className="col-md-6">
