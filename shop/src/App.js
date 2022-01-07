@@ -24,8 +24,8 @@ function App() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link><Link className='deco' to="/">Home</Link></Nav.Link>
-              <Nav.Link><Link className='deco' to="/detail">Detail</Link></Nav.Link>
+              <Nav.Link as={Link} className='deco' to="/">Home</Nav.Link>
+              <Nav.Link as={Link} className='deco' to="/detail">Detail</Nav.Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
