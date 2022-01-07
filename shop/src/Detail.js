@@ -27,7 +27,7 @@ function Detail(props) {
                 <Title className="blue">상세 페이지</Title>
             </Box>
 
-        <div className="my-alert">
+        <div className="my-alert2">
             <p>재고가 얼마 남지 않았습니다.</p>
         </div>
        <br/>
