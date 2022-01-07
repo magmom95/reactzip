@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import styled from "styled-components";
+import './Detail.scss'
 
 let Box = styled.div`
     padding : 20px;
     `;
 
-let Title = styled.h4`
+let Title = styled.h3`
     font-size : 25px;
     color : ${ props => props.col }
     `;
@@ -19,11 +20,17 @@ function Detail(props) {
         return item.id == id
     });
 
-;    return(
+    return(
         <div className="container">
             <Box>
                 <Title col='orange' >상세 페이지</Title>
+                <Title className="blue">상세 페이지</Title>
             </Box>
+
+        <div className="my-alert">
+            <p>재고가 얼마 남지 않았습니다.</p>
+        </div>
+       <br/>
         <div className="row">
           <div className="col-md-6">
             <img src="https://github.com/magmom95/interex/blob/main/nike2.JPG?raw=true" width="100%" />

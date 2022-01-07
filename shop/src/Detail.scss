@@ -1,0 +1,42 @@
+@import './reset.scss';
+
+$maincolor : #0000FF;
+
+.blue {
+    color: $maincolor;
+}
+
+// div.container h4 {
+//     color: green;
+// }
+
+// div.container p {
+//     color : blueviolet;
+// }
+
+
+// nesting 문법
+// div.container {
+    
+//     h4 {
+//         color: green;
+//     }
+
+//     p {
+//         color : purple;
+//     }
+    
+// }
+
+.my-alert {
+    background : #eeeeee;
+    padding : 15px;
+    border-radius : 5px;
+    max-width : 500px;
+    width : 100%;
+    margin : auto;
+  }
+  
+.my-alert p {
+    margin-bottom : 0;
+  }
