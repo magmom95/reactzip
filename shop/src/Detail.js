@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import styled from "styled-components";
 import './Detail.scss'
@@ -14,6 +14,11 @@ let Title = styled.h3`
 
 function Detail(props) {
 
+    useEffect(() => {
+        let timer = setTimeout(() => {alert변경(true)}, 2000)
+    });
+
+    let [alert, alert변경] = useState(false);
     let history = useHistory();
     let { id } = useParams();
     let finditem = props.shoes.find(function(item){
@@ -27,9 +32,13 @@ function Detail(props) {
                 <Title className="blue">상세 페이지</Title>
             </Box>
 
-        <div className="my-alert2">
-            <p>재고가 얼마 남지 않았습니다.</p>
-        </div>
+        {
+          alert === true
+          ? ( <div className="my-alert2">
+              <p>재고가 얼마 남지 않았습니다.</p>
+              </div> )
+          : null
+        }
        <br/>
         <div className="row">
           <div className="col-md-6">
