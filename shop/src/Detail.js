@@ -14,12 +14,14 @@ let Title = styled.h3`
 
 function Detail(props) {
 
+  let [inputData, inputData변경] = useState(' ');
+  let [alert, alert변경] = useState(false);
+
     useEffect(() => {
         let timer = setTimeout(() => { alert변경(true) }, 2000)
-    });
+    },[alert]);
 
-    let [inputData, inputData변경] = useState(' ');
-    let [alert, alert변경] = useState(false);
+
     let history = useHistory();
     let { id } = useParams();
     let finditem = props.shoes.find(function(item){
