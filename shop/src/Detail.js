@@ -15,9 +15,10 @@ let Title = styled.h3`
 function Detail(props) {
 
     useEffect(() => {
-        let timer = setTimeout(() => {alert변경(true)}, 2000)
+        let timer = setTimeout(() => { alert변경(true) }, 2000)
     });
 
+    let [inputData, inputData변경] = useState(' ');
     let [alert, alert변경] = useState(false);
     let history = useHistory();
     let { id } = useParams();
@@ -32,6 +33,9 @@ function Detail(props) {
                 <Title className="blue">상세 페이지</Title>
             </Box>
 
+            { inputData }
+            <input onChange={(e)=>{ inputData변경(e.target.value)}} />
+            <br/><br/>
         {
           alert === true
           ? ( <div className="my-alert2">
