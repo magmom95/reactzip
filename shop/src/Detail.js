@@ -18,9 +18,9 @@ function Detail(props) {
   let [alert, alert변경] = useState(false);
 
     useEffect(() => {
-        let timer = setTimeout(() => { alert변경(true) }, 2000)
-    },[alert]);
-
+        let timer = setTimeout(() => { alert변경(true) }, 5000)
+        return () =>{ clearTimeout(timer)}
+    },[]);
 
     let history = useHistory();
     let { id } = useParams();
