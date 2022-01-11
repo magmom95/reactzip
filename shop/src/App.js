@@ -4,6 +4,7 @@ import './App.css';
 import Data from './data';
 import Test from './test';
 import Detail from './Detail';
+import axios from 'axios';
 
 import { Link, Route, Switch } from 'react-router-dom';
 
@@ -118,7 +119,17 @@ function App() {
         </div>
       </div> */}
 
-      
+    <button className='btn btn-warning' onClick={() => {
+
+      axios.get()
+      .then((result)=>{
+        console.log(result.data)
+      })
+      .catch(()=>{
+        console.log('실패')
+      })  
+
+    }}>더보기</button>
     </div>
         );
       }

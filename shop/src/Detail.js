@@ -35,7 +35,7 @@ function Detail(props) {
                 <Title className="blue">상세 페이지</Title>
             </Box>
 
-            { inputData }
+ 
             <input onChange={(e)=>{ inputData변경(e.target.value)}} />
             <br/><br/>
         {
