@@ -123,7 +123,7 @@ function App() {
 
       axios.get()
       .then((result)=>{
-        console.log(result.data)
+        shoes변경([...shoes,...result.data])
       })
       .catch(()=>{
         console.log('실패')
