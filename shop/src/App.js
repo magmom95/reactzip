@@ -12,6 +12,7 @@ function App() {
 
   let [shoes, shoes변경] = useState(Data);
   let [text, text변경] = useState(Test);
+  let [재고,재고변경] = useState([10,11,12])
 
   return (
     <div className="App">
@@ -102,7 +103,7 @@ function App() {
         </div>
       </Route>
       <Route exact path="/detail/:id">
-        <Detail shoes={shoes}/>
+        <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}/>
       </Route>
       <Route path="/:id">
         <div>아무거나 적었을때 보여진다</div>
@@ -119,7 +120,7 @@ function App() {
         </div>
       </div> */}
 
-    <button className='btn btn-warning' onClick={() => {
+    {/* <button className='btn btn-warning' onClick={() => {
 
       axios.get()
       .then((result)=>{
@@ -129,7 +130,7 @@ function App() {
         console.log('실패')
       })  
 
-    }}>더보기</button>
+    }}>더보기</button> */}
     </div>
         );
       }
