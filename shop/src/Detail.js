@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import styled from "styled-components";
 import './Detail.scss'
+import { 재고context } from './App.js';
 
 let Box = styled.div`
     padding : 20px;
@@ -16,6 +17,7 @@ function Detail(props) {
 
   let [inputData, inputData변경] = useState(' ');
   let [alert, alert변경] = useState(false);
+  let 재고 = useContext(재고context);
 
     useEffect(() => {
         let timer = setTimeout(() => { alert변경(true) }, 5000)

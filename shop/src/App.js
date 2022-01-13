@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import { Link, Route, Switch } from 'react-router-dom';
 
-let 재고context = React.createContext();
+export let 재고context = React.createContext();
 
 function App() {
 
@@ -111,7 +111,9 @@ function App() {
         </div>
       </Route>
       <Route exact path="/detail/:id">
-        <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}/>
+        <재고context.Provider value={재고}>
+          <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}/>
+        </재고context.Provider>
       </Route>
       <Route path="/:id">
         <div>아무거나 적었을때 보여진다</div>
@@ -152,7 +154,7 @@ function App() {
             <img src={'https://github.com/magmom95/interex/blob/main/nike'+ (props.i+ 1)+'.JPG?raw=true'} width='100%' height='78%'/>
             <h4>{props.shoes.title}</h4>
             <p>{props.shoes.content}</p> 
-        {재고}
+        재고 : {재고[props.i]}
         </div>
       );
   }
