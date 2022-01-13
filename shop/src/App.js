@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Carousel} from 'react-bootstrap';
 import './App.css';
 import Data from './data';
@@ -7,6 +7,8 @@ import Detail from './Detail';
 import axios from 'axios';
 
 import { Link, Route, Switch } from 'react-router-dom';
+
+let 재고context = React.createContext();
 
 function App() {
 
@@ -93,6 +95,9 @@ function App() {
         </Carousel>
         <br/><br/>
         <div className='container'>
+          
+          <재고context.Provider value={재고}>
+
           <div className='row'>
             {
               shoes.map((a, i)=> {
@@ -100,6 +105,9 @@ function App() {
               })
             }
           </div>
+
+          </재고context.Provider>
+
         </div>
       </Route>
       <Route exact path="/detail/:id">
@@ -136,11 +144,15 @@ function App() {
       }
 
   function Card(props){
+
+    let 재고 = useContext(재고context);
+
       return(
         <div className='col-md-4'>
             <img src={'https://github.com/magmom95/interex/blob/main/nike'+ (props.i+ 1)+'.JPG?raw=true'} width='100%' height='78%'/>
             <h4>{props.shoes.title}</h4>
             <p>{props.shoes.content}</p> 
+        {재고}
         </div>
       );
   }
