@@ -2,6 +2,15 @@
 
 $maincolor : #0000FF;
 
+.Anima-enter {
+  opacity: 0;
+  }
+
+.Anima-enter-active {
+  opacity: 1;
+  transition: all 500ms;
+}
+
 .blue {
     color: $maincolor;
 }
