@@ -7,6 +7,7 @@ import Detail from './Detail';
 import axios from 'axios';
 
 import { Link, Route, Switch } from 'react-router-dom';
+import Cart from './Cart.js';
 
 export let 재고context = React.createContext();
 
@@ -15,6 +16,7 @@ function App() {
   let [shoes, shoes변경] = useState(Data);
   let [text, text변경] = useState(Test);
   let [재고,재고변경] = useState([10,11,12])
+  // let [cart,cart변경] = useState
 
   return (
     <div className="App">
@@ -115,10 +117,13 @@ function App() {
           <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}/>
         </재고context.Provider>
       </Route>
-      <Route path="/:id">
+      {/* <Route exact path="/:id">
         <div>아무거나 적었을때 보여진다</div>
-      </Route>
+      </Route> 아무 주소를 입력했을때 보임*/ }
     </Switch>
+    <Route path="/cart">
+            <Cart></Cart>
+    </Route>
       {/* <Route path="/컴포넌트" component={Modal}></Route> */}
       {/* <div className='container'>
         <div className='row'>
