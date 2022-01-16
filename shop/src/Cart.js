@@ -32,13 +32,21 @@ function Cart(props){
 
           </tbody>
         </Table>
+      { props.state2 === true
+        ?(<div className='my-alert2'>
+          <p>할인 할인</p>
+          <button onClick={() => {props.dispatch({type:'alert닫기'})}}>닫기</button>
+        </div>)
+        : null 
+      }
       </div>
     )
 }
 
 function Test(state) {
   return {
-    state : state
+    state : state.reducer,
+    state2 : state.reducer2
   }
 }
 

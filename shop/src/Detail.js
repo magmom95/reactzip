@@ -5,6 +5,7 @@ import './Detail.scss'
 import { 재고context } from './App.js';
 import {Nav} from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
 
 let Box = styled.div`
     padding : 20px;
@@ -61,12 +62,18 @@ function Detail(props) {
               <p>{finditem.content}</p>
               <p>{finditem.price}원</p>
               <Info 재고={props.재고}></Info>
-            <button className="btn btn-danger" onClick={()=>{ props.재고변경([9]) }}>주문하기</button>
+            <button className="btn btn-danger" onClick={()=>{ 
+              
+              props.재고변경([9]) ;
+              props.dispatch({type : '항목추가', payload: {id:2, name:'새로운상품', quan: 1}});
+
+              }}>주문하기</button>
             <br/><br/>  
             <button className="btn btn-warning" onClick={() =>{ 
                 // history.goBack();
                 history.push('/')
                 }}>뒤로가기</button> 
+            
           </div>
         </div>
 
@@ -105,4 +112,11 @@ function Info(props){
   )
 }
 
-export default Detail;
+function Test2(state) {
+  return {
+    state : state.reducer,
+    state2 : state.reducer2
+  }
+}
+
+export default connect(Test2)(Detail)

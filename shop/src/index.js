@@ -6,7 +6,19 @@ import reportWebVitals from './reportWebVitals';
 // import { HashRouter } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
+
+let alertstate = true ;
+
+function reducer2(state = alertstate, action){
+  if (action.type === 'alert닫기'){
+    state = false;
+    return state;
+  }else{
+    return state;
+  }
+
+}
 
 let teststate =   [
   { id : 0, name : '쿠로롱', quan : 2},
@@ -14,7 +26,14 @@ let teststate =   [
 ];
 
 function reducer(state = teststate, action){
-  if (action.type === '수량증가') {
+
+  if (action.type === '항목추가'){
+
+    let copy = [...state];
+    copy.push();
+    return copy;
+    
+  } else if (action.type === '수량증가') {
     
     let copy = [...state];
     copy[0].quan++;
@@ -31,7 +50,8 @@ function reducer(state = teststate, action){
   }
   
 }
-let store = createStore(reducer);
+
+let store = createStore(combineReducers({reducer,reducer2}));
 
 // ReactDOM.render(
 //   <React.StrictMode>
