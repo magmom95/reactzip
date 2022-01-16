@@ -8,7 +8,30 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-let store = createStore(()=>{ return [{ id : 0, name : '쿠로롱', quan : 2}] });
+let teststate =   [
+  { id : 0, name : '쿠로롱', quan : 2},
+  { id : 1, name : '루루룽', quan : 1}
+];
+
+function reducer(state = teststate, action){
+  if (action.type === '수량증가') {
+    
+    let copy = [...state];
+    copy[0].quan++;
+    return copy
+  
+  } else if (action.type === '수량감소'){
+
+    let copy = [...state];
+    copy[0].quan--;
+    return copy
+
+  } else {
+    return state
+  }
+  
+}
+let store = createStore(reducer);
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -22,9 +45,9 @@ let store = createStore(()=>{ return [{ id : 0, name : '쿠로롱', quan : 2}] }
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
