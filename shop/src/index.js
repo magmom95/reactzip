@@ -28,29 +28,41 @@ let teststate =   [
 function reducer(state = teststate, action){
 
   if (action.type === '항목추가'){
-
-    let copy = [...state];
-    copy.push(action.payload);
-    return copy;
-    
-  } else if (action.type === '수량증가') {
-    
-    let copy = [...state];
-    copy[0].quan++;
-    return copy
+    let found =state.findIndex((a) => {
+      return a.id === action.payload.id;
+    });
   
-  } else if (action.type === '수량감소'){
-
-    let copy = [...state];
-    copy[0].quan--;
-    return copy
-
+  if (found >= 0){
+    let teststatecopy = [...state];
+    teststatecopy[found].quan++;
+    return teststatecopy;
   } else {
-    return state
+    let teststatecopy = [...state];
+    teststatecopy.push(action.payload);
+    return teststatecopy;
+    }
+  } else if (action.type === '수량증가') {
+    let teststatecopy = [...state];
+    let found = state.findIndex((a) => {
+      return a.id === action.payload;
+    });
+    teststatecopy[found].quan++;
+    return teststatecopy;
+  } else if (action.type === "수량감소") {
+    let teststatecopy = [...state];
+    let found = state.findIndex((a) => {
+      return a.id === action.payload;
+    });
+    if (teststatecopy[found].quan <= 0) {
+      teststatecopy[found].quan = 0;
+    } else {
+      teststatecopy[found].quan--;
+    }
+    return teststatecopy;
+  } else {
+    return state;
   }
-  
 }
-
 let store = createStore(combineReducers({reducer,reducer2}));
 
 // ReactDOM.render(
