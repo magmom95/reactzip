@@ -30,7 +30,7 @@ function reducer(state = teststate, action){
   if (action.type === '항목추가'){
 
     let copy = [...state];
-    copy.push();
+    copy.push(action.payload);
     return copy;
     
   } else if (action.type === '수량증가') {
