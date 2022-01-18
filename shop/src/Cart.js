@@ -1,8 +1,12 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 function Cart(props){
+
+    let state = useSelector((state) => state);
+    let dispatch = useDispatch();
+
     return(
         <div>
         <Table responsive="sm">
@@ -16,15 +20,15 @@ function Cart(props){
           </thead>
           <tbody>
           { 
-            props.state.map((a,i)=>{
+            state.reducer.map((a,i)=>{
               return (
                   <tr key={i}>
                     <td>{a.id}</td>
                     <td>{a.name}</td>
                     <td>{a.quan}</td>
                     <td>
-                      <button onClick={()=>{ props.dispatch({ type : '수량증가', payload : a.id})}}>+</button>
-                      <button onClick={()=>{ props.dispatch({ type : '수량감소', payload : a.id})}}>-</button>
+                      <button onClick={()=>{ dispatch({ type : '수량증가', payload : a.id})}}>+</button>
+                      <button onClick={()=>{ dispatch({ type : '수량감소', payload : a.id})}}>-</button>
                     </td>
                   </tr>
                   )
@@ -44,11 +48,13 @@ function Cart(props){
     )
 }
 
-function Test(state) {
-  return {
-    state : state.reducer,
-    state2 : state.reducer2
-  }
-}
+// function Test(state) {
+//   return {
+//     state : state.reducer,
+//     state2 : state.reducer2
+//   }
+// }
 
-export default connect(Test)(Cart)
+// export default connect(Test)(Cart)
+
+export default Cart;   
