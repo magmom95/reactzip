@@ -21,14 +21,14 @@ function reducer2(state = alertstate, action){
 }
 
 let teststate =   [
-  { id : 0, name : '쿠로롱', quan : 2},
-  { id : 1, name : '루루룽', quan : 1}
+  // { id : 0, name : '쿠로롱', quan : 2},
+  // { id : 1, name : '루루룽', quan : 1}
 ];
 
 function reducer(state = teststate, action){
 
   if (action.type === '항목추가'){
-    let found =state.findIndex((a) => {
+    let found = state.findIndex((a) => {
       return a.id === action.payload.id;
     });
   
