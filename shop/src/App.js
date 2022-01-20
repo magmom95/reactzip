@@ -1,13 +1,14 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, lazy, Suspense} from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Carousel} from 'react-bootstrap';
 import './App.css';
 import Data from './data';
 import Test from './test';
-import Detail from './Detail';
 import axios from 'axios';
 
 import { Link, Route, Switch, useHistory } from 'react-router-dom';
 import Cart from './Cart.js';
+
+let Detail = lazy(()=>{import('./Detail.js')});
 
 export let 재고context = React.createContext();
 
