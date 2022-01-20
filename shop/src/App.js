@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Link, Route, Switch, useHistory } from 'react-router-dom';
 import Cart from './Cart.js';
 
-let Detail = lazy(()=>{import('./Detail.js')});
+let Detail = lazy(()=> import('./Detail.js'));
 
 export let 재고context = React.createContext();
 
@@ -115,7 +115,9 @@ function App() {
       </Route>
       <Route exact path="/detail/:id">
         <재고context.Provider value={재고}>
-          <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}/>
+          <Suspense fallback={<div>로딩중</div>}>
+            <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}/>
+          </Suspense>
         </재고context.Provider>
       </Route>
       {/* <Route exact path="/:id">
