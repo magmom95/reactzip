@@ -24,6 +24,17 @@ function Detail(props) {
   let [탭, 탭변경] = useState(0);
   let [스위치, 스위치변경] = useState(false);
 
+  useEffect( ()=>{
+    var arr = localStorage.getItem('watched');
+    if(arr == null ) { arr = [] } else { arr = JSON.parse(arr) }
+    
+    arr.push(id);
+    arr = new Set(arr);
+    arr = [...arr];
+    localStorage.setItem('watched', JSON.stringify(arr) );
+  
+  }, [] );
+
     useEffect(() => {
         let timer = setTimeout(() => { alert변경(true) }, 5000)
         return () =>{ clearTimeout(timer)}

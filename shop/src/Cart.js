@@ -75,5 +75,6 @@ function Child1(){
 let Child2 = memo(function(){
   useEffect( ()=>{ console.log('렌더링됨2') } );
   return <div>2222</div>
+  // 존박만 부를때 재 랜더링 안됨 
 })
 export default Cart;   
