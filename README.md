@@ -494,6 +494,7 @@ ReactDOM.render(
 - 함수 선언식은 호이스팅에 영향을 받지만, 함수 표현식은 호이스팅에 영향을 받지 않음
     
 ---
+    
 ❤ REDUX를 쓰는 이유?
 
 <details markdown="1">
@@ -507,8 +508,35 @@ ReactDOM.render(
     
 4. ```<Provider store={store}>``` 이렇게 store를 등록하면 이제 Provider로 감싼 컴포넌트는 전부 store안에 있던 값을 props없이 공유 가능합니다.
 
+💥 이제 Provider로 감싼 컴포넌트는 전부 store안에 있던 값을 props없이 공유 가능
+  
+---
+   
 </details>
   
-✔ 첫번째 props 전송 없이도 모든 컴포넌트들이 state를 사용할 수 있게 만들어줌
+✔ props 전송 없이도 모든 컴포넌트들이 state를 사용할 수 있게 만들어줌
     
 - 컴포넌트가 매우 깊숙히 있다면 state전달하려고 props 100번 써야되고 귀찮은데 redux를 이렇게 셋팅해주시면 props 100번 쓸 필요가 없이 바로 꺼낼 수 있음
+
+---
+
+<details markdown="1">
+<summary>⚠ redux로 state 데이터를 수정하는 방법</summary>
+
+1. reducer 함수를 만들고 그곳에 데이터 수정하는 방법을 정의
+
+2. 그리고 원하는 곳에서 dispatch() 라는 함수를 써서 reducer에게 수정해달라고 요청
+  
+✔ 즉!
+  
+1. state 데이터의 수정방법을 index.js에다가 미리 정의해놓고 (일명 reducer)
+
+2. index.js에게 수정좀 해달라고 요청 
+
+🎉 여기서 reducer는 function 안에 
+
+1. state 초기값과
+
+2. state 데이터 수정방법이 잔득 들어있는 함수
+
+</details>
