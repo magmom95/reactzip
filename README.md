@@ -495,7 +495,20 @@ ReactDOM.render(
     
 ---
 ❤ REDUX를 쓰는 이유?
+
+<details markdown="1">
+<summary>📌 셋팅</summary>
+  
+1. index.js에 ```<Provider>```를 import 함
+
+2. state 값공유를 원하는 컴포넌트를 감싸면 됩니다.
+
+3. ```createStore```를 import 해오신 다음 사용법에 의해 ```state```를 만들어 ```let store```라는 변수에 저장을 한다 가정하고
     
+4. ```<Provider store={store}>``` 이렇게 store를 등록하면 이제 Provider로 감싼 컴포넌트는 전부 store안에 있던 값을 props없이 공유 가능합니다.
+
+</details>
+  
 ✔ 첫번째 props 전송 없이도 모든 컴포넌트들이 state를 사용할 수 있게 만들어줌
     
 - 컴포넌트가 매우 깊숙히 있다면 state전달하려고 props 100번 써야되고 귀찮은데 redux를 이렇게 셋팅해주시면 props 100번 쓸 필요가 없이 바로 꺼낼 수 있음
