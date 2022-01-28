@@ -581,10 +581,27 @@ let store = createStore(reducer);
 <button onClick={()=>{ props.dispatch({type: '감소'}) }}> + </button>
 ```
   
+---
+  
 </details>
 
 ‼ 무조건 redux를 쓰는것이 아님 오히려 소규모 사이트면 필요없음 
 
 ✔ 대규모 사이트들에서 데이터를 한 눈에, 한 곳에 관리할 수 있어서 씀
 
-- redux는 결론적으로 state 관리가 용이 === 상태관리가 용이하다
+- redux는 결론적으로 state 관리가 용이 === 상태관리가 용이
+  
+<details markdown="1">
+  
+<summary>⚠ reducer가 여러개 필요한다면?</summary>
+ 
+```javascript
+  
+let store = createStore( combineReducers({reducer, reducer2}) )
+  
+```
+  
+---
+  
+</details>
+  
