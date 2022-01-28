@@ -495,6 +495,67 @@ ReactDOM.render(
     
 ---
     
+🤳 Lifecycle & Hook ?
+    
+- Hook이란 갈고리 즉! 중간중간에 무언가 나오게 (?) 할때 사용 
+
+![image](https://user-images.githubusercontent.com/64140544/151591272-a5feb969-fe18-40e2-a870-219706ea82f3.png)
+
+```javascript
+class Detail extends React.Component {
+  componentDidMount(){
+    //Detail 컴포넌트가 Mount 되고나서 실행할 코드
+  }
+  componentWillUnmount(){
+    //Detail 컴포넌트가 Unmount 되기전에 실행할 코드
+  }
+}
+```
+    
+1. 컴포넌트 첫 등장 후 실행할 코드 (componentDidMount())
+
+2. 다른페이지로 넘어간다든지 등의 사유로 컴포넌트가 사라지기 전 실행할 코드 (componentWillUnmount())
+
+🎉 useEffect 훅이란?
+
+- 위에껀 class 형식이고 useEffect는 functon컴포넌트 안에 넣음 
+    
+```javascript
+(Detail.js 파일)
+
+function Detail(){
+
+  let [ alert, alert변경 ] = useState(true);
+  useEffect(()=>{
+    let 타이머 = setTimeout(()=>{ alert변경(false) }, 2000);
+  });
+  
+  return (
+    <HTML많은곳/>
+    {
+      alert === true
+      ? (<div className="my-alert">
+          <p>재고가 얼마 남지 않았습니다</p>
+        </div>)
+      : null
+    }
+  )
+}
+    
+```
+
+1. 근데 미리 페이지 상단에서 useEffect를 import 
+
+2. useEffect() 를 사용함
+
+3. 그리고 안에 콜백함수를 집어넣음
+
+4. 콜백함수 안에는 Detail 컴포넌트가 첫 등장하고나서 실행하고싶은 코드를 적으면됨
+
+---
+    
+
+    
 ❤ REDUX를 쓰는 이유?
 
 <details markdown="1">
