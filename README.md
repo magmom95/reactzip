@@ -539,4 +539,52 @@ ReactDOM.render(
 
 2. state 데이터 수정방법이 잔득 들어있는 함수
 
+```javascript
+  
+(index.js)
+
+function reducer(){
+  return [{id : 0, name : '예시', quan : 2}]
+}
+  
+function reducer(state = 기본state, 액션){
+  if (액션.type === '추가') {
+    
+    let copy = [...state];
+    copy[0].quan++;
+    return copy
+
+  } else if (액션.type === ''){
+
+    let copy = [...state];
+    copy[0].quan--;
+    return copy
+
+  } else {
+    return state
+  }
+  
+}
+  
+let store = createStore(reducer);
+  
+```
+
+보는것처럼 
+  
+1. 따로 state 변수를 만들고
+
+2. 그걸 reducer에 default 파라미터 문법으로 집어넣어도 됨
+  
+```javascript
+<button onClick={()=>{ props.dispatch({type: '추가'}) }}> + </button>
+<button onClick={()=>{ props.dispatch({type: '감소'}) }}> + </button>
+```
+  
 </details>
+
+‼ 무조건 redux를 쓰는것이 아님 오히려 소규모 사이트면 필요없음 
+
+✔ 대규모 사이트들에서 데이터를 한 눈에, 한 곳에 관리할 수 있어서 씀
+
+- redux는 결론적으로 state 관리가 용이 === 상태관리가 용이하다
