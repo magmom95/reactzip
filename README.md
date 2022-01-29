@@ -651,6 +651,8 @@ let store = createStore(reducer);
 ✔ 대규모 사이트들에서 데이터를 한 눈에, 한 곳에 관리할 수 있어서 씀
 
 - redux는 결론적으로 state 관리가 용이 === 상태관리가 용이
+ 
+---
   
 <details markdown="1">
   
@@ -667,6 +669,39 @@ let store = createStore( combineReducers({reducer, reducer2}) )
 - combineReducers() 안에 모든 리듀서를 object 형식으로 작성
 
 ---
+
+</details>
+  
+💥 만약 reducer가 2개이상이면 데이터 형식이 달라질수 있으므로 주의해야함
+
+<details markdown="1">
+
+<summary>⚠ 혹시나 데이터가 제대로 되있는지 확인하려면?</summary>
+
+- state를props화() 해주는 함수를 사용하요 콘솔창에 출력하면됨
+  
+```javascript
+  
+function Cart(props){
+  return (
+    ...
+  )
+}
+
+function test(state){
+  console.log(state);
+  return {
+    state : state,
+  }
+}
+export default connect(test)(Cart)
+  
+```
+  
+---
   
 </details>
+  
+---
+
   
