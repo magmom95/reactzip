@@ -662,6 +662,10 @@ let store = createStore( combineReducers({reducer, reducer2}) )
   
 ```
   
+- combineReducers() 라는 함수를 하나 'redux'에서 import 해오시고
+
+- combineReducers() 안에 모든 리듀서를 object 형식으로 작성
+
 ---
   
 </details>
