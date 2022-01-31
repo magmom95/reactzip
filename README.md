@@ -678,7 +678,7 @@ let store = createStore( combineReducers({reducer, reducer2}) )
 
 <summary>⚠ 혹시나 데이터가 제대로 되있는지 확인하려면?</summary>
 
-- state를props화() 해주는 함수를 사용하요 콘솔창에 출력하면됨
+- state를props화 해주는 함수(test) 를 사용하요 콘솔창에 출력하면됨
   
 ```javascript
   
@@ -701,7 +701,93 @@ export default connect(test)(Cart)
 ---
   
 </details>
+
+<details markdown="1">
+
+<summary>⚠ 혹시나 데이터가 제대로 되있는지 확인하려면?</summary>
+
+- dispatch를 사용하면 됨
   
+```javascript
+  
+ (Detail.js)
+
+function Detail(props){
+  return (
+    <HTML많은곳/>
+    <button onClick={()=>{ 
+  
+      props.dispatch({type : '항목추가', payload : {id : 2, name : '새로운상품', quan : 1} }) 
+
+    }}>주문하기</button>
+  )
+}
+  
+```
+
+- dispatch 요청을 할때 추가 된 데이터를 함께 실어서 보냄 그리고 state에 추가 됨
+  
+- dispatch 할 때 안에 type말고 payload(가제)라는 항목을 만들고 redux store로 전달할 데이터를 작성가능
+  
+```javascript
+  
+function Cart(props){
+  return (
+    ...
+  )
+}
+
+function test(state){
+  console.log(state);
+  return {
+    state : state.reducer,
+    state2 : state.reducer2
+  }
+}
+export default connect(test)(Cart)
+  
+```
+
+- 보는 것 처럼 수정을 하면 오류가 수정 됨
+
+📌 전송한 데이터를 출력하거나 가져다 쓰려면
+  
+```javascript
+  
+(index.js)
+
+let 기본state = [{id : 0, name : '멋진신발', quan : 2}];
+
+function reducer(state = 기본state, 액션){
+
+  if (액션.type === '항목추가') {
+
+    let copy = [...state];
+    copy.push(액션.payload);
+    return copy;
+
+  } else if (액션.type === '수량증가'){
+    let copy = [...state];
+    copy[0].quan++;
+    return copy
+  } else if (액션.type === '수량감소'){
+    let copy = [...state];
+    copy[0].quan--;
+    return copy
+  } else {
+    return state
+  }
+}
+  
+```
+  
+- educer(state, 액션) {} 이렇게 적은 부분에서의 액션이라는 파라미터는
+
+그냥 dispatch() 소괄호 안에 들어있던 모든게 들어있음
+  
+---
+  
+</details>
 ---
 
   
