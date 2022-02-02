@@ -789,6 +789,8 @@ function reducer(state = 기본state, 액션){
   
 📌 다시 한번 redux 쓰는 이유
   
+![image](https://user-images.githubusercontent.com/64140544/152136186-f5bfa0eb-c428-47be-8629-6d757f96a169.png)
+  
 1. 모든 컴포넌트가 props 없이도 state를 꺼내 쓸수 있음
  
 2. state 버그 관리가 용이 (reducer로 미리 정의 dispatch()를 이용해서 reducer에 state를 수정 요청)
@@ -797,4 +799,58 @@ function reducer(state = 기본state, 액션){
   
 ---
 
+📐 useSelector Hook
   
+``` javascript
+  function test(state){
+  console.log(state);
+  return {
+    state : state.reducer,
+    state2 : state.reducer2
+  }
+}
+export default connect(test)(Cart)
+```
+  
+이 코드를 useSelector Hook을 아래와 같이 바꿀 수 있음
+  
+``` javascript
+import { useSelector } from 'react-redux';
+
+function Cart(props) {
+  let state = useSelector((state) => state )
+  console.log(state.reducer)
+  
+  (생략)
+} 
+```
+1. useSelecotr()라는 함수를 import 
+  
+2. useSelector() 안에 콜백함수에 redux state에 변수에 저장해서 씀
+
+- 콜백함수 안에는 파라미터 하나 입력가능한데 그건 자동으로 store (reducer 합친거)가 됨 
+
+- 그럼 (state) => state.reducer 이런 식으로 쓰면 조금 상세하게 state를 원하는 것만 가져옴
+
+- 아무튼 state 쉽게 가져오고 싶으면 쓰면됨
+  
+---
+  
+📐 useDispatch Hook
+  
+``` javascript
+import { useSelector, useDispatch } from 'react-redux';
+
+function Cart(props) {
+  let state = useSelector((state) => state )
+  let dispatch = useDispatch()
+  
+  (생략)
+} 
+```
+
+그럼 이제 props.dispatch()로 state 수정요청 날리던걸
+
+dispatch() 만으로 간단하게 사용할 수 있음
+  
+---
