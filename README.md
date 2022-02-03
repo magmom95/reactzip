@@ -895,3 +895,14 @@ function reducer(state = 기본state, action){
 - store의 값을 변화 시키기 위해서 ```action```이 필요 action을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 action을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
 
 ---
+  
+📌 useEffect가 작동하는 몇가지 조건
+  
+1. 페이지가 처음 렌더링 되고 난 후 <b>무조건</b>
+  
+2. useEffect에 배열로 지정한 useState의 값이 변경되면 실행 됨
+  
+✔ useEffect는 렌더링, 혹은 변수의 값 혹은 오브젝트가 달라지게 되면 그것을 인지하고 업데이트 해주는 함수
+  
+- 결론 렌더링 혹은 값, 오브젝트의 변경에 따라 어떠한 함수 혹은 여러 개의 함수들을 동작 가능
+---
