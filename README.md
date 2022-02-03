@@ -758,19 +758,19 @@ export default connect(test)(Cart)
 
 let 기본state = [{id : 0, name : '멋진신발', quan : 2}];
 
-function reducer(state = 기본state, 액션){
+function reducer(state = 기본state, action){
 
-  if (액션.type === '항목추가') {
+  if (action.type === '항목추가') {
 
     let copy = [...state];
-    copy.push(액션.payload);
+    copy.push(action.payload);
     return copy;
 
-  } else if (액션.type === '수량증가'){
+  } else if (action.type === '수량증가'){
     let copy = [...state];
     copy[0].quan++;
     return copy
-  } else if (액션.type === '수량감소'){
+  } else if (action.type === '수량감소'){
     let copy = [...state];
     copy[0].quan--;
     return copy
@@ -781,19 +781,11 @@ function reducer(state = 기본state, 액션){
   
 ```
   
-- reducer(state, 액션) {} 이렇게 적은 부분에서의 액션이라는 파라미터는
+- reducer(state, action) {} 이렇게 적은 부분에서의 action이라는 파라미터는
 
 그냥 dispatch() 소괄호 안에 들어있던 모든게 들어있음
   
 ---
-  
-📌 다시 한번 redux 쓰는 이유
-  
-![image](https://user-images.githubusercontent.com/64140544/152136186-f5bfa0eb-c428-47be-8629-6d757f96a169.png)
-  
-1. 모든 컴포넌트가 props 없이도 state를 꺼내 쓸수 있음
- 
-2. state 버그 관리가 용이 (reducer로 미리 정의 dispatch()를 이용해서 reducer에 state를 수정 요청)
   
 </details>
   
@@ -853,4 +845,53 @@ function Cart(props) {
 
 dispatch() 만으로 간단하게 사용할 수 있음
   
+---
+  
+📌 다시 한번 redux 쓰는 이유
+  
+![image](https://user-images.githubusercontent.com/64140544/152136186-f5bfa0eb-c428-47be-8629-6d757f96a169.png)
+  
+1. 모든 컴포넌트가 props 없이도 state를 꺼내 쓸수 있음
+ 
+2. state 버그 관리가 용이 (reducer로 미리 정의 dispatch()를 이용해서 reducer에 state를 수정 요청)
+ 
+```javascript
+  
+(index.js)
+
+let 기본state = [{id : 0, name : '멋진신발', quan : 2}];
+
+function reducer(state = 기본state, action){
+
+  if (action.type === '항목추가') {
+
+    let copy = [...state];
+    copy.push(action.payload);
+    return copy;
+
+  } else if (action.type === '수량증가'){
+    let copy = [...state];
+    copy[0].quan++;
+    return copy
+  } else if (action.type === '수량감소'){
+    let copy = [...state];
+    copy[0].quan--;
+    return copy
+  } else {
+    return state
+  }
+}
+  
+```
+
+- 여기서 나오는 ```Action```은 중앙 저장소에 저장된 ```state```에 "무슨" 동작을 할 것이지 적어놓는 객체 ```Action```에는 ```type``` 이 필수로 필요합니다. (type 공식문서에서 권장)
+
+- ```Dispatch```는 위에서 Action Creater로 return 해준 Action을 파라미터로 받아서 store의 reducer에게 넘겨주는 역할을 해주는 열차 
+  
+- ```store```는 모든 컴포넌트에서 사용할수 있는 Global State를 저장해놓는 저장소
+
+- ```state```는 엄격하게 관리해야하므로 ```dispatch```라는 함수를 통해서만 ```state``에 접근 가능 
+
+- store의 값을 변화 시키기 위해서 ```action```이 필요 action을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 action을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
+
 ---
