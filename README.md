@@ -884,15 +884,15 @@ function reducer(state = 기본state, action){
   
 ```
 
-- 여기서 나오는 ```Action```은 중앙 저장소에 저장된 ```state```에 "무슨" 동작을 할 것이지 적어놓는 객체 ```Action```에는 ```type``` 이 필수로 필요합니다. (type 공식문서에서 권장)
+- 여기서 나오는 ```action```은 중앙 저장소에 저장된 ```state```에 "무슨" 동작을 할 것이지 적어놓는 객체 ```action```에는 ```type``` 이 필수로 필요합니다. (type 공식문서에서 권장)
 
-- ```Dispatch```는 위에서 Action Creater로 return 해준 ```Action```을 파라미터로 받아서 ```store```의 ```reducer```에게 넘겨주는 역할을 해주는 열차 
+- ```Dispatch```는 위에서 action Creater로 return 해준 ```action```을 파라미터로 받아서 ```store```의 ```reducer```에게 넘겨주는 역할을 해주는 열차 
   
 - ```store```는 모든 컴포넌트에서 사용할수 있는 Global State를 저장해놓는 저장소
 
 - ```state```는 엄격하게 관리해야하므로 ```dispatch```라는 함수를 통해서만 ```state``에 접근 가능 
 
-- store의 값을 변화 시키기 위해서 ```action```이 필요 action을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 action을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
+- store의 값을 변화 시키기 위해서 ```action```이 필요 ```action```을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 ```action```을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
 
 ---
   
