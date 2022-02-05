@@ -886,7 +886,7 @@ function reducer(state = 기본state, action){
 
 - 여기서 나오는 ```Action```은 중앙 저장소에 저장된 ```state```에 "무슨" 동작을 할 것이지 적어놓는 객체 ```Action```에는 ```type``` 이 필수로 필요합니다. (type 공식문서에서 권장)
 
-- ```Dispatch```는 위에서 Action Creater로 return 해준 Action을 파라미터로 받아서 store의 reducer에게 넘겨주는 역할을 해주는 열차 
+- ```Dispatch```는 위에서 Action Creater로 return 해준 ```Action```을 파라미터로 받아서 ```store```의 ```reducer```에게 넘겨주는 역할을 해주는 열차 
   
 - ```store```는 모든 컴포넌트에서 사용할수 있는 Global State를 저장해놓는 저장소
 
