@@ -905,4 +905,108 @@ function reducer(state = 기본state, action){
 ✔ useEffect는 렌더링, 혹은 변수의 값 혹은 오브젝트가 달라지게 되면 그것을 인지하고 업데이트 해주는 함수
   
 - 결론 렌더링 혹은 값, 오브젝트의 변경에 따라 어떠한 함수 혹은 여러 개의 함수들을 동작 가능
+  
+---
+
+📌 react에서 if문 쓰는 법
+  
+1. if/ else 문
+  
+``` javascript
+function Component() {
+  if ( true ) {
+    return <p>참이면 보여줄 HTML</p>;
+  } 
+  return null;
+} 
+```
+
+- else와 중괄호 없이도 가능
+  
+2. 삼항연산자
+  
+``` javascript
+function Component() {
+  return (
+    <div>
+      {
+        1 === 1
+        ? <p>참이면 보여줄 HTML</p>
+        : null
+      }
+    </div>
+  )
+} 
+```
+  
+3. && 연산자
+  
+``` javascript
+function Component() {
+  return (
+    <div>
+      {
+        1 === 1
+        ? <p>참이면 보여줄 HTML</p>
+        : null
+      }
+    </div>
+  )
+} 
+
+function Component() {
+  return (
+    <div>
+      {
+        1 === 1 && <p>참이면 보여줄 HTML</p>
+      }
+    </div>
+  )
+}
+  
+- 왼쪽 조건식이 true면 오른쪽 JSX가 그 자리에 남고 왼쪽 조건식이 false면 false가 남음
+
+4. switch / case    
+
+``` javascript
+function reducer(state, action){
+  
+  switch (action.type) {
+    case '수량증가' :
+      return 수량증가된state;
+    case '수량감소' : 
+      return 수량감소된state;
+    default : 
+      return state
+  }
+
+} 
+```
+  
+5. 오브젝트 자료형을 응용한 enum
+  
+``` javascript
+function Component() {
+  var 현재상태 = 'info';
+  return (
+    <div>
+      {
+        { 
+           info : <p>상품정보</p>,
+           shipping : <p>배송관련</p>,
+           refund : <p>환불약관</p>
+        }[현재상태]
+      }
+
+    </div>
+  )
+} 
+```
+
+- 마지막에 object{} 뒤에 [] 대괄호를 붙여서 "key값이 현재상태인 자료를 뽑겠습니다" 라는 의미
+
+- 그럼 이제 현재상태라는 변수의 값에 따라서 원하는 HTML을 보여줌
+
+- 만약에 var 현재상태가 'info'면 info 에 저장된 <p>태그가 'refund'이면 refund 항목에 저장된 <p>태그가 나옴 
+  
 ---
