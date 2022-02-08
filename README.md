@@ -894,6 +894,10 @@ function reducer(state = 기본state, action){
 
 - store의 값을 변화 시키기 위해서 ```action```이 필요 ```action```을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 ```action```을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
 
+![image](https://user-images.githubusercontent.com/64140544/152989611-8946a545-55ef-45cc-a0d4-297c6717bc21.png)
+  
+![image](https://user-images.githubusercontent.com/64140544/152989682-1bcc507f-f704-47ef-83ed-948955666e24.png)
+
 ---
   
 📌 useEffect가 작동하는 몇가지 조건
