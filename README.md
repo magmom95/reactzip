@@ -898,6 +898,13 @@ function reducer(state = 기본state, action){
   
 ![image](https://user-images.githubusercontent.com/64140544/152989682-1bcc507f-f704-47ef-83ed-948955666e24.png)
 
+1. 컴포넌트에서 action을 정의
+
+2. action을 dispatch로 담아 reducer에게 전달
+
+3. state를 변경하기 전 기존 state를 새로운 정보가 담길 newstate에 복사하고 정보를 변경
+
+4. reducer가 newstate를 리턴하면 newstate가 store내 state가 됨 그리고 앞으로 이 state가 사용
 ---
   
 📌 useEffect가 작동하는 몇가지 조건
