@@ -1018,6 +1018,6 @@ function Component() {
 
 - 그럼 이제 현재상태라는 변수의 값에 따라서 원하는 HTML을 보여줌
 
-- 만약 위쪽 보기 코드 var 현재상태가 'info'면 info 에 저장된 <p>태그가 'refund'이면 refund 항목에 저장된 <p>태그가 나옴 
+- 만약 위쪽 보기 코드 ```var``` 현재상태가 ```info```면 info 에 저장된 <p>태그가 ```refund```이면 refund 항목에 저장된 <p>태그가 나옴 
   
 ---
