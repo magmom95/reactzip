@@ -10,6 +10,14 @@
 
 💄 SSR? CSR? 
 
+- SSR
+
+![p1_ssr](https://user-images.githubusercontent.com/64140544/166455506-dc44cf04-5fb4-434e-a689-4fbb11405009.jpg)
+
+- CSR
+
+![p1_csr](https://user-images.githubusercontent.com/64140544/166455508-cddaefbc-657a-4ed8-9e2c-e6c523a1def0.jpg)
+
 ---
 
 📌 기업에서 웹앱을 사용하는 이유 
