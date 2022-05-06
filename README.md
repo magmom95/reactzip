@@ -107,7 +107,7 @@ data1과 data2는 똑같은 값을 공유
 
 </details>
 
-✔ 결론은 아래와 같이 코드를 짜면 동작이 가능하다 이떄 사용한 문법이 spread 
+✔ 결론은 아래와 같이 코드를 짜면 동작이 가능하다 이떄 사용한 문법이 바로 spread 
 
 <details markdown="1">
 <summary>spread 문법이란?</summary>
