@@ -32,6 +32,64 @@
 
 </details>
 
+---
+
+<details markdown="1">
+<summary>🖨 CSS 모듈</summary>
+
+<br>
+
+- CRA 로 만든 프로젝트에서 CSS Module 를 사용 할 때에는, CSS 파일의 확장자를 .module.css 로 하면 CSS 클래스가 중첩되는 것을 완벽히 방지할 수 있음
+
+``` javascript
+.Box {
+  background: black;
+  color: white;
+  padding: 2rem;
+}
+
+/*(Box.module.css)*/
+
+```
+
+``` javascript
+import React from "react";
+import styles from "./Box.module.css";
+
+function Box() {
+  return <div className={styles.Box}>{styles.Box}</div>;
+}
+
+export default Box;
+
+/*(Box.js)*/
+
+```
+
+![image](https://user-images.githubusercontent.com/64140544/167423367-ef174b58-5874-4587-85c8-f50521246f58.png)
+
+- 클래스 이름에 대하여 고유한 이름들이 만들어지기 때문에, 실수로 CSS 클래스 이름이 다른 관계 없는 곳에서 사용한 CSS 클래스 이름과 중복되는 일을 생각 할 필요 없음
+
+🎁 CSS모듈이 유용할 떄
+
+- 레거시 프로젝트에 리액트를 도입할 때 (기존 프로젝트에 있던 CSS 클래스와 이름이 중복되어도 스타일이 꼬이지 않게 해줌)
+ 
+- CSS 클래스를 중복되지 않게 작성하기 위하여 CSS 클래스 네이밍 규칙을 만들기 귀찮을 때
+
+🎀 리액트 컴포넌트를 위한 클래스를 작성 할 때 제가 자주 사용하는 CSS 클래스 네이밍 규칙
+
+- 컴포넌트의 이름은 다른 컴포넌트랑 중복되지 않게 해야 함
+
+- 컴포넌트의 최상단 CSS 클래스는 컴포넌트의 이름과 일치 시켜야 함 (예: .Button)
+
+- 컴포넌트 내부에서 보여지는 CSS 클래스는 CSS Selector 를 잘 활용 (예: .MyForm .my-input)
+
+---
+
+</details>
+
+---
+
 📌 기업에서 웹앱을 사용하는 이유 
 
 - UX가 뛰어나서 좋은 사용자경험을 제공
