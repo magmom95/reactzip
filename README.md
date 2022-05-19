@@ -977,8 +977,8 @@ function reducer(state = 기본state, action){
 
 - store의 값을 변화 시키기 위해서 ```action```이 필요 ```action```을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 ```action```을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
 
-![image](https://user-images.githubusercontent.com/64140544/152989611-8946a545-55ef-45cc-a0d4-297c6717bc21.png)
-  
+![images_hxxn__daily_post_c2585d84-0d7f-4ed5-bfc7-74fb494f9408_ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26](https://user-images.githubusercontent.com/64140544/169411374-d7594d41-9569-4837-b210-c1810d6e34f3.gif)
+
 ![image](https://user-images.githubusercontent.com/64140544/152989682-1bcc507f-f704-47ef-83ed-948955666e24.png)
 
 1. 컴포넌트에서 action을 정의
