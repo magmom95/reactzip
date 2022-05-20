@@ -520,7 +520,7 @@ ReactDOM.render(
       <Route path="/about" component={About} />
   </div>
 ```
-📌 라우터의 Link 태그, Switch 태그, history 역할?
+📌 라우터의 Link 태그, Switch 태그, history 역할? (과거 방법)
   
 ```javascript
     <a href="localhost:3000/about">
