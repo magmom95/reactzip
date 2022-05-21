@@ -568,6 +568,24 @@ ReactDOM.render(
   </div>
 ```
 - 위와 같이 <Route> 들을 <Switch> 로 감싸주면 에러가 발생했을 때 <PageNotFound> 가 나오게 되는데, 이는 첫번째로 매칭하는 path 값이 위에서 전부 없었기 때문임
+    
+🎱 (21 년 11월 기준) 리액트 라우터가 v6로 업그레이드 되어 바뀐내용은 아래와 같음
+  
+```javascript
+  <div>
+    function App(){
+  let navigate = useNavigate()
+  
+  return (
+    (생략)
+    <button onClick={()=>{ navigate('/detail') }}>이동버튼</button>
+  )
+}
+  </div>
+```
+    
+- useNavigate() 쓰면 그 자리에 페이지 이동시켜주는 함수가 남음
+
 </details>
 
 ---
