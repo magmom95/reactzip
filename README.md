@@ -991,7 +991,7 @@ function reducer(state = 기본state, action){
   
 - ```store```는 모든 컴포넌트에서 사용할수 있는 Global State를 저장해놓는 저장소
 
-- ```state```는 엄격하게 관리해야하므로 ```dispatch```라는 함수를 통해서만 ```state``에 접근 가능 
+- ```state```는 엄격하게 관리해야하므로 ```dispatch```라는 함수를 통해서만 ```state```에 접근 가능 
 
 - store의 값을 변화 시키기 위해서 ```action```이 필요 ```action```을 ```action creater```가 만들고 그걸 ```dispatch```열차가 ```store```의 ```reducer```에게 ```action```을 전달해주면 reducer가 ```action```의 ```type```을 보고 행동을 해줌 
 
